@@ -21,7 +21,7 @@
 
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
+                    <td><a href="{{route('admin.users.edit',$user->id)}}">{{$user->name}}</a></td>
                     <td>{{$user->organismo->nombre}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at}}</td>

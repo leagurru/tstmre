@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         DB::table('users')->truncate();
-        factory(App\User::class, 10)->create();
+        factory(App\User::class, 50)->create();
 
         DB::table('mres')->truncate();
         $this->call(MresTableSeeder::class);

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->integer('organismo_id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->default(bcrypt('secreto'));
             $table->rememberToken();
             $table->timestamps();
         });

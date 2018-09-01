@@ -30,7 +30,7 @@
 
                     <div>
                         <a href="admin/users">Todos los Usuarios</a>
-                        <a href="https://laracasts.com">Crear un Usuario</a>
+                        <a href="admin/users/create">Crear un Usuario</a>
 
                     </div>
                 </div>
@@ -54,18 +54,18 @@
                     </div>
 
                     <div>
-                        <a href="admin/edificios">Edificios</a>
+                        <a href="admin/edificios">Consultar Edificios</a>
                     </div>
                 </div>
 
                 <br><br>
                 <div>
                     <div>
-                        Escritos
+                        Mesas Receptoras
                     </div>
 
                     <div>
-                        <a href="admin/mres">Mesas Receptoras</a>
+                        <a href="admin/mres">Consultar MREs</a>
                     </div>
                 </div>
 

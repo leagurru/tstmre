@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersEditRequest;
+use App\Http\Requests\UsersRequest;
+use App\Organismo;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -25,7 +29,11 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        //
+
+        $organismos = Organismo::pluck('nombre','id')->all();
+        return view('admin.users.create', compact('organismos'));
+//
+//        return view('admin.users.create');
     }
 
     /**
@@ -34,9 +42,28 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+//    public function store(Request $request)
+//    {
+//        //
+//    }
+
+    public function store(UsersRequest $request)
     {
-        //
+
+        if (trim($request->password) == '') {
+            $input = $request->except(('password'));
+        } else {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
+
+        User::create($input);
+
+        Session::flash('created_user', 'El usuario ha sido creado');
+
+//        User::create($request->all()); // no guarda la foto
+        return redirect('/admin/users');
     }
 
     /**
@@ -47,7 +74,7 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.users.show');
     }
 
     /**
@@ -56,9 +83,12 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $organismos = Organismo::pluck('nombre','id')->all();
+        return view('admin.users.edit',compact('user','organismos'));
     }
 
     /**
@@ -68,10 +98,30 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+//    public function update(Request $request, $id)
+//    {
+//        //
+//    }
+
+    public function update(UsersEditRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if (trim($request->password) == '') {
+            $input = $request->except(('password'));
+        } else {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
+
+        $user->update($input);
+
+        Session::flash('updated_user', 'El usuario ha sido actualizado');
+
+        return redirect('/admin/users');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -81,6 +131,10 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        Session::flash('deleted_user','El usuario ha sido borrado');
+
+        return redirect('/admin/users');
     }
 }

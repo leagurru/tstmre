@@ -24,7 +24,15 @@ Route::get('/about', function () {
 
 //Route::get('/user','UserController@index');
 
-Route::resource('admin/users','AdminUsersController');
+//Route::resource('admin/users','AdminUsersController');
+
+Route::resource('admin/users','AdminUsersController',['names'=>[
+    'index'  => 'admin.users.index',
+    'create' => 'admin.users.create',
+    'store' => 'admin.users.store',
+    'edit' => 'admin.users.edit'
+
+]]);
 
 Route::resource('admin/organismos','AdminOrganismosController');
 
