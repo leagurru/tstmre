@@ -41,7 +41,7 @@
                     </div>
 
                     <div>
-                        <a href="organismos/index">Todos los Organismos</a>
+                        <a href="admin/organismos/index">Todos los Organismos</a>
                         <a href="https://laracasts.com">Crear un Organismo</a>
 
                     </div>

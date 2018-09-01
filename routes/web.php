@@ -26,6 +26,6 @@ Route::get('/about', function () {
 
 Route::resource('admin/users','AdminUsersController');
 
-Route::resource('organismos/index','OrganismoController');
+Route::resource('admin/organismos','AdminOrganismosController');
 
 Route::resource('escritos/index','EscritoController');
