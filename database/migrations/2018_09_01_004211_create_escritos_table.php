@@ -15,6 +15,7 @@ class CreateEscritosTable extends Migration
     {
         Schema::create('escritos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->integer('organismo_id');
             $table->integer('causaNumero');
             $table->integer('causaAnio');
