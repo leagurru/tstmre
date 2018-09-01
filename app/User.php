@@ -32,6 +32,6 @@ class User extends Authenticatable
     }
 
     public function organismo(){
-        return $this->hasOne('App\organismo');
+        return $this->belongsTo('App\Organismo');
     }
 }

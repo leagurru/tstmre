@@ -14,7 +14,8 @@ class EscritoController extends Controller
      */
     public function index()
     {
-        //
+        $escritos = Escrito::paginate(10);
+        return view('escritos.index',compact('escritos'));
     }
 
     /**

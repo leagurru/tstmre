@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Organismo;
+use App\User;
 use Illuminate\Http\Request;
 
-class OrganismoController extends Controller
+class AdminUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class OrganismoController extends Controller
      */
     public function index()
     {
-        $organismos = Organismo::paginate(10);
-        return view('organismos.index',compact('organismos'));
+        $users = User::paginate(5);
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -42,22 +42,21 @@ class OrganismoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Organismo  $organismo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Organismo $organismo)
+    public function show($id)
     {
         //
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Organismo  $organismo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organismo $organismo)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +65,10 @@ class OrganismoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Organismo  $organismo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organismo $organismo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +76,10 @@ class OrganismoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Organismo  $organismo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organismo $organismo)
+    public function destroy($id)
     {
         //
     }

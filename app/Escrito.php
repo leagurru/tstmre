@@ -8,7 +8,7 @@ class Escrito extends Model
 {
     //
     public function user(){
-        return $this->belongsTo('App\Escrito');
+        return $this->belongsTo('App\User');
     }
 
     public function organismo(){

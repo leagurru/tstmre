@@ -11,6 +11,21 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('/about','UsersController@index);
+Route::get('/about', function () {
+    return 'hi about page';
+});
+
+//Route::get('/user','UserController@index');
+
+Route::resource('admin/users','AdminUsersController');
+
+Route::resource('organismos/index','OrganismoController');
+
+Route::resource('escritos/index','EscritoController');
