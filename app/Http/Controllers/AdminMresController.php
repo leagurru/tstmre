@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Organismo;
+use App\Mre;
 use Illuminate\Http\Request;
 
-class AdminOrganismosController extends Controller
+class AdminMresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminOrganismosController extends Controller
      */
     public function index()
     {
-        $organismos = Organismo::paginate(10);
-        return view('admin.organismos.index',compact('organismos'));
+        $mres = Mre::paginate(10);
+        return view('admin.mres.index',compact('mres'));
     }
 
     /**

@@ -28,4 +28,8 @@ Route::resource('admin/users','AdminUsersController');
 
 Route::resource('admin/organismos','AdminOrganismosController');
 
+Route::resource('admin/mres','AdminMresController');
+
+Route::resource('admin/edificios','AdminEdificiosController');
+
 Route::resource('escritos/index','EscritoController');

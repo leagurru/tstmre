@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Edificio;
 use Illuminate\Http\Request;
 
-class EdificioController extends Controller
+class xAdminEdificiosController extends Controller
 {
     /**
      * Display a listing of the resource.

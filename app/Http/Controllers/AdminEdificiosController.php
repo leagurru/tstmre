@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Organismo;
+use App\Edificio;
 use Illuminate\Http\Request;
 
-class AdminOrganismosController extends Controller
+class AdminEdificiosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminOrganismosController extends Controller
      */
     public function index()
     {
-        $organismos = Organismo::paginate(10);
-        return view('admin.organismos.index',compact('organismos'));
+        $edificios = Edificio::paginate(10);
+        return view('admin.edificios.index',compact('edificios'));
     }
 
     /**

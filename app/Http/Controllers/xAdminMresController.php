@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Mre;
 use Illuminate\Http\Request;
 
-class MreController extends Controller
+class xAdminMresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class MreController extends Controller
      */
     public function index()
     {
-        //
+        $mres = Mre::all();
+        return view('admin.mres.index',compact('mres'));
     }
 
     /**
