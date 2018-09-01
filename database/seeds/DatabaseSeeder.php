@@ -32,12 +32,8 @@ class DatabaseSeeder extends Seeder
 
 
 
-//        DB::table('mre_organismo')->truncate();
-
-
-
-
-//        $this->call(OrganismosTableSeeder::class);
+        DB::table('mre_organismo')->truncate();
+        $this->call(MreOrganismoTableSeeder::class);
 
 
 //        // relación user y posts

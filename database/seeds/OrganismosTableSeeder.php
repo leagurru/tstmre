@@ -29,12 +29,42 @@ class OrganismosTableSeeder extends Seeder
             'edificio_id' => '1',
             'piso' => '0'
         ]);
+
         DB::table('organismos')->insert([
             'nombre' => 'Juzgado del Trabajo N° 4',
             'id' => '4',
             'edificio_id' => '1',
             'piso' => '0'
         ]);
+
+        DB::table('organismos')->insert([
+            'nombre' => 'Juzgado del Trabajo N° 48',
+            'id' => '48',
+            'edificio_id' => '2',
+            'piso' => '0'
+        ]);
+
+        DB::table('organismos')->insert([
+            'nombre' => 'Juzgado del Trabajo N° 49',
+            'id' => '49',
+            'edificio_id' => '2',
+            'piso' => '0'
+        ]);
+
+        DB::table('organismos')->insert([
+            'nombre' => 'Juzgado del Trabajo N° 50',
+            'id' => '50',
+            'edificio_id' => '2',
+            'piso' => '0'
+        ]);
+
+        DB::table('organismos')->insert([
+            'nombre' => 'Juzgado del Trabajo N° 51',
+            'id' => '51',
+            'edificio_id' => '2',
+            'piso' => '0'
+        ]);
+
 
         DB::table('organismos')->insert([
             'nombre' => 'MRE Diagonal 760',
