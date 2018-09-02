@@ -29,11 +29,8 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-
         $organismos = Organismo::pluck('nombre','id')->all();
         return view('admin.users.create', compact('organismos'));
-//
-//        return view('admin.users.create');
     }
 
     /**
@@ -49,7 +46,6 @@ class AdminUsersController extends Controller
 
     public function store(UsersRequest $request)
     {
-
         if (trim($request->password) == '') {
 //            $input = $request->except(('password'));
                 $input = $request->validate([
@@ -68,13 +64,9 @@ class AdminUsersController extends Controller
             $input['password'] = bcrypt($request->password);
         }
 
-
-
         User::create($input);
-
         Session::flash('created_user', 'El usuario ha sido creado');
 
-//        User::create($request->all()); // no guarda la foto
         return redirect('/admin/users');
     }
 

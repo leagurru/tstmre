@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Edificio;
 use App\Organismo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminOrganismosController extends Controller
 {
@@ -26,7 +27,8 @@ class AdminOrganismosController extends Controller
      */
     public function create()
     {
-        //
+        $edificios = Edificio::pluck('direccion','id')->all();
+        return view('admin.organismos.create', compact('edificios'));
     }
 
     /**
@@ -37,7 +39,16 @@ class AdminOrganismosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'nombre' => 'required',
+            'edificio_id' => 'required',
+            'piso' => 'required'
+        ]);
+
+        Organismo::create($input);
+        Session::flash('created_organismo', 'El organismo ha sido creado');
+
+        return redirect('/admin/organismos');
     }
 
     /**
@@ -62,16 +73,8 @@ class AdminOrganismosController extends Controller
         $organismo = Organismo::findOrFail($id);
         $edificios = Edificio::pluck('direccion','id')->all();
 
-        return view('admin.users.edit',compact('organismo','edificios'));
+        return view('admin.organismos.edit',compact('organismo','edificios'));
     }
-
-//    public function edit($id)
-//    {
-//        $user = User::findOrFail($id);
-//        $organismos = Organismo::pluck('nombre','id')->all();
-//        return view('admin.users.edit',compact('user','organismos'));
-//    }
-
 
     /**
      * Update the specified resource in storage.
@@ -82,7 +85,20 @@ class AdminOrganismosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $organismo = Organismo::findOrFail($id);
+
+        $input = $request->validate([
+            'nombre' => 'required',
+            'edificio_id' => 'required',
+            'piso' => 'required',
+            'observaciones' => 'nullable'
+        ]);
+
+        $organismo->update($input);
+
+        Session::flash('updated_organismo', 'El organismo ha sido actualizado');
+
+        return redirect('/admin/organismos');
     }
 
     /**
@@ -93,6 +109,10 @@ class AdminOrganismosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $organismo = Organismo::findOrFail($id);
+        $organismo->delete();
+        Session::flash('deleted_organismo','El organismo ha sido borrado');
+
+        return redirect('/admin/organismos');
     }
 }

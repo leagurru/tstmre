@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Organismo extends Model
 {
+
+    protected $fillable = [
+        'nombre', 'edificio_id', 'piso', 'observaciones',
+    ];
+
     public function edificio(){
         return $this->belongsTo('App\Edificio');
     }

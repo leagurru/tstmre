@@ -21,16 +21,6 @@
         {!! Form::select('organismo_id', [''=>'Indique el Organismo del Usuario'] + $organismos,null,['class'=>'form-control']) !!}
     </div>
 
-    {{--<div class="form-group">--}}
-        {{--{!! Form::label('is_active','Status:') !!}--}}
-        {{--{!! Form::select('is_active', array(1=>'Activo',0=>'Inactivo'), 0,['class'=>'form-control']) !!}--}}
-    {{--</div>--}}
-
-    {{--<div class="form-group">--}}
-        {{--{!! Form::label('photo_id','File:') !!}--}}
-        {{--{!! Form::file('photo_id',null,['class'=>'form-control']) !!}--}}
-    {{--</div>--}}
-
     <div class="form-group">
         {!! Form::label('password','Password:') !!}
         {!! Form::password('password',['class'=>'form-control']) !!}
@@ -42,7 +32,9 @@
 
     {!! Form::close() !!}
 
-    @include('includes.form_error')
+    <div class="row">
+        @include('includes.form_error')
+    </div>
 
 
 @stop
