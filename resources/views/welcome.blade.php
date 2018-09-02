@@ -55,6 +55,7 @@
 
                     <div>
                         <a href="admin/edificios">Consultar Edificios</a>
+                        <a href="admin/edificios/create">Crear un Edificio</a>
                     </div>
                 </div>
 

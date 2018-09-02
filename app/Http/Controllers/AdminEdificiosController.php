@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Edificio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminEdificiosController extends Controller
 {
@@ -25,7 +26,7 @@ class AdminEdificiosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.edificios.create', compact('edificios'));
     }
 
     /**
@@ -36,7 +37,14 @@ class AdminEdificiosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'direccion' => 'required'
+        ]);
+
+        Edificio::create($input);
+        Session::flash('created_edificio', 'El edificio ha sido creado');
+
+        return redirect('/admin/edificios');
     }
 
     /**
@@ -58,7 +66,8 @@ class AdminEdificiosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edificio =  Edificio::findOrFail($id);
+        return view('admin.edificios.edit',compact('edificio'));
     }
 
     /**
@@ -70,7 +79,18 @@ class AdminEdificiosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $edificio = Edificio::findOrFail($id);
+
+
+        $input = $request->validate([
+            'direccion' => 'required'
+        ]);
+
+        $edificio->update($input);
+
+        Session::flash('updated_edificio', 'El edificio ha sido actualizado');
+
+        return redirect('/admin/edificios');
     }
 
     /**
@@ -81,6 +101,9 @@ class AdminEdificiosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $edificio = Edificio::findOrFail($id);
+        $edificio->delete();
+        Session::flash('deleted_edificio','El edificio ha sido borrado');
+        return redirect('admin/edificios');
     }
 }

@@ -19,7 +19,7 @@
 
                 <tr>
                     <td>{{$edificio->id}}</td>
-                    <td>{{$edificio->direccion}}</td>
+                    <td><a href="{{route('admin.edificios.edit',$edificio->id)}}">{{$edificio->direccion}}</a></td>
                     <td>{{$edificio->created_at}}</td>
                     <td>{{$edificio->updated_at}}</td>
                 </tr>

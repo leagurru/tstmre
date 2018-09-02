@@ -47,6 +47,13 @@ Route::resource('admin/organismos','AdminOrganismosController',['names'=>[
 
 Route::resource('admin/mres','AdminMresController');
 
-Route::resource('admin/edificios','AdminEdificiosController');
+//Route::resource('admin/edificios','AdminEdificiosController');
+Route::resource('admin/edificios','AdminEdificiosController',['names'=>[
+    'index'  => 'admin.edificios.index',
+    'create' => 'admin.edificios.create',
+    'store' => 'admin.edificios.store',
+    'edit' => 'admin.edificios.edit'
+
+]]);
 
 Route::resource('escritos/index','EscritoController');

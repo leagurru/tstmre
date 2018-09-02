@@ -42,7 +42,7 @@ class AdminOrganismosController extends Controller
         $input = $request->validate([
             'nombre' => 'required',
             'edificio_id' => 'required',
-            'piso' => 'required'
+            'piso' => 'required|integer'
         ]);
 
         Organismo::create($input);
@@ -90,7 +90,7 @@ class AdminOrganismosController extends Controller
         $input = $request->validate([
             'nombre' => 'required',
             'edificio_id' => 'required',
-            'piso' => 'required',
+            'piso' => 'required|integer',
             'observaciones' => 'nullable'
         ]);
 
