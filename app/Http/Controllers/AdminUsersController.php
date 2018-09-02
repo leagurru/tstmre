@@ -51,11 +51,23 @@ class AdminUsersController extends Controller
     {
 
         if (trim($request->password) == '') {
-            $input = $request->except(('password'));
+//            $input = $request->except(('password'));
+                $input = $request->validate([
+                'organismo_id' => 'required',
+                'name' => 'required',
+                'email' => 'required|email'
+            ]);
         } else {
-            $input = $request->all();
+//            $input = $request->all();
+            $input = $request->validate([
+                'organismo_id' => 'required',
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required'
+            ]);
             $input['password'] = bcrypt($request->password);
         }
+
 
 
         User::create($input);

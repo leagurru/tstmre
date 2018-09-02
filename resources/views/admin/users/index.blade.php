@@ -12,6 +12,7 @@
             <th>Email</th>
             <th>Creado</th>
             <th>Actualizado</th>
+            <th>Editar</th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>
+                    {{--<td><a href="{{route('admin.users.edit',$user->id)}}"><span class="glyphicon glyphicon-zoom-in"></span> Editar</a></td>--}}
+
+                    {{--<td><a href=""{{route('admin.users.edit',$user->id)}}"" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span> Editar</a></td>--}}
                 </tr>
 
             @endforeach

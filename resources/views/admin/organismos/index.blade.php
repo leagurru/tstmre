@@ -7,13 +7,11 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Nombre</th>
+            <th>Nombre del Organismo</th>
             <th>Edificio</th>
             <th>Piso</th>
             <th>MRE</th>
             <th>Observaciones</th>
-            {{--<th>Creado</th>--}}
-            {{--<th>Actualizado</th>--}}
         </tr>
         </thead>
         <tbody>
@@ -23,7 +21,8 @@
 
                 <tr>
                     <td>{{$organismo->id}}</td>
-                    <td>{{$organismo->nombre}}</td>
+                    {{--<td>{{$organismo->nombre}}</td>--}}
+                    <td><a href="{{route('admin.organismos.edit',$organismo->id)}}">{{$organismo->nombre}}</a></td>
                     <td>{{$organismo->edificio->direccion}}</td>
                     <td>{{$organismo->piso}}</td>
                     <td>{{$organismo->piso}}</td>

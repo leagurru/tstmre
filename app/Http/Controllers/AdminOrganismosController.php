@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Edificio;
 use App\Organismo;
 use Illuminate\Http\Request;
 
@@ -58,8 +59,19 @@ class AdminOrganismosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $organismo = Organismo::findOrFail($id);
+        $edificios = Edificio::pluck('direccion','id')->all();
+
+        return view('admin.users.edit',compact('organismo','edificios'));
     }
+
+//    public function edit($id)
+//    {
+//        $user = User::findOrFail($id);
+//        $organismos = Organismo::pluck('nombre','id')->all();
+//        return view('admin.users.edit',compact('user','organismos'));
+//    }
+
 
     /**
      * Update the specified resource in storage.

@@ -11,6 +11,6 @@ class Edificio extends Model
     }
 
     public function organismo(){
-        return $this->hasMany('App\organismo');
+        return $this->hasMany('App\Organismo');
     }
 }

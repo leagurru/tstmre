@@ -3,7 +3,7 @@
 
     <h1>Creación de Usuario</h1>
 
-    {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true])  !!}
+    {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store'])  !!}
     {{csrf_field()}}
 
     <div class="form-group">

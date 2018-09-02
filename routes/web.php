@@ -34,7 +34,16 @@ Route::resource('admin/users','AdminUsersController',['names'=>[
 
 ]]);
 
-Route::resource('admin/organismos','AdminOrganismosController');
+//Route::resource('admin/organismos','AdminOrganismosController');
+Route::resource('admin/organismos','AdminOrganismosController',['names'=>[
+    'index'  => 'admin.organismos.index',
+    'create' => 'admin.organismos.create',
+    'store' => 'admin.organismos.store',
+    'edit' => 'admin.organismos.edit'
+
+]]);
+
+
 
 Route::resource('admin/mres','AdminMresController');
 
