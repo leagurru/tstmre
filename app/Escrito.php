@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Escrito extends Model
 {
-    //
-    public function user(){
-        return $this->belongsTo('App\User');
-    }
+    protected $fillable = [
+        'user_id', 'organismo_id', 'causaNumero', 'causaAnio', 'caratula', 'observaciones'
+    ];
 
+    public function user(){
+        return $this->hasOne('App\User');
+    }
     public function organismo(){
-        return $this->belongsTo('App\Organismo');
+        return $this->hasOne('App\Organismo');
     }
 }

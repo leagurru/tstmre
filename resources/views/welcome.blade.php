@@ -80,7 +80,7 @@
 
                     <div>
                         <a href="escritos/index">Todos los Escritos</a>
-                        <a href="https://laracasts.com">Nuevo Escrito</a>
+                        <a href="escritos/create">Nuevo Escrito</a>
 
                     </div>
                 </div>

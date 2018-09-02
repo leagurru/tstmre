@@ -59,4 +59,14 @@ Route::resource('admin/edificios','AdminEdificiosController',['names'=>[
     'edit' => 'admin.edificios.edit'
 ]]);
 
-Route::resource('escritos/index','EscritoController');
+//Route::resource('escritos','EscritosController',['names'=>[
+//    'index'  => 'escritos.index',
+//    'create' => 'escritos.create',
+//    'store' => 'escritos.store',
+//    'edit' => 'escritos.edit'
+//]]);
+
+
+Route::resource('escritos','EscritosController',['names'=>[
+    'index'  => 'escritos.index'
+]]);

@@ -59,6 +59,10 @@ class AdminMresController extends Controller
         //
     }
 
+//    public function showOrganismosMesa($id){
+//        $organismosMesa = Organismo::where('role_id',$request->roleid)->pluck('name','id');
+//    }
+
     /**
      * Show the form for editing the specified resource.
      *

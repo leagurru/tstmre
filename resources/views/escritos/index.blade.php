@@ -9,11 +9,10 @@
             <th>Id</th>
             <th>Organismo</th>
             <th>Causa N°</th>
-            <th>Año</th>
+            <th>Causa Año</th>
             <th>Carátula</th>
             <th>Observaciones</th>
-            <th>Creado</th>
-            <th>Actualizado</th>
+            <th>Usuario</th>
         </tr>
         </thead>
         <tbody>
@@ -26,10 +25,8 @@
                     <td>{{$escrito->organismo->nombre}}</td>
                     <td>{{$escrito->causaNumero}}</td>
                     <td>{{$escrito->causaAnio}}</td>
-                    <td>{{$escrito->caratula}}</td>
+                    {{--<td><a href="{{route('escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>--}}
                     <td>{{$escrito->observaciones}}</td>
-                    <td>{{$escrito->created_at}}</td>
-                    <td>{{$escrito->updated_at}}</td>
                 </tr>
 
             @endforeach

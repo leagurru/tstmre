@@ -8,7 +8,10 @@
         <tr>
             {{--<th>Id Mesa</th>--}}
             {{--<th>Id Organismo</th>--}}
-            <th>Organismo</th>
+            <th>Mesa</th>
+            <th>Organismos</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +23,7 @@
                     {{--<td>{{$mre->id}}</td>--}}
                     {{--<td>{{$mre->organismo_id}}</td>--}}
                     <td><a href="{{route('admin.mres.edit',$mre->id)}}">{{$mre->organismo->nombre}}</a></td>
+                    <td></td>
                 </tr>
 
             @endforeach
