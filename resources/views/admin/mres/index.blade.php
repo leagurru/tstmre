@@ -21,7 +21,9 @@
                 <tr>
                     <td>{{$mre->id}}</td>
                     <td>{{$mre->organismo_id}}</td>
-{{--                    <td>{{$mre->organismo->nombre}}</td>--}}
+                    {{--<td>{{$mre->organismo->nombre}}</td>--}}
+                    {{--<a href="{{'admin.organismos.edit'}}"></a>--}}
+                    <td><a href="{{route('admin.mres.edit',$mre->id)}}">{{$mre->organismo->nombre}}</a></td>
                     <td>{{$mre->created_at}}</td>
                     <td>{{$mre->updated_at}}</td>
                 </tr>

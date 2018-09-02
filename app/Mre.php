@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mre extends Model
 {
-    public function edificio(){
-        return $this->belongsTo('App\Edificio');
+    protected $fillable = [
+        'organismo_id',
+    ];
+
+    public function organismo(){
+        return $this->belongsTo('App\Organismo');
     }
 }

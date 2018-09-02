@@ -81,15 +81,12 @@ class AdminEdificiosController extends Controller
     {
         $edificio = Edificio::findOrFail($id);
 
-
         $input = $request->validate([
             'direccion' => 'required'
         ]);
 
         $edificio->update($input);
-
         Session::flash('updated_edificio', 'El edificio ha sido actualizado');
-
         return redirect('/admin/edificios');
     }
 

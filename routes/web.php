@@ -43,9 +43,13 @@ Route::resource('admin/organismos','AdminOrganismosController',['names'=>[
 
 ]]);
 
-
-
-Route::resource('admin/mres','AdminMresController');
+//Route::resource('admin/mres','AdminMresController');
+Route::resource('admin/mres','AdminMresController',['names'=>[
+    'index'  => 'admin.mres.index',
+    'create' => 'admin.mres.create',
+    'store' => 'admin.mres.store',
+    'edit' => 'admin.mres.edit'
+]]);
 
 //Route::resource('admin/edificios','AdminEdificiosController');
 Route::resource('admin/edificios','AdminEdificiosController',['names'=>[
@@ -53,7 +57,6 @@ Route::resource('admin/edificios','AdminEdificiosController',['names'=>[
     'create' => 'admin.edificios.create',
     'store' => 'admin.edificios.store',
     'edit' => 'admin.edificios.edit'
-
 ]]);
 
 Route::resource('escritos/index','EscritoController');

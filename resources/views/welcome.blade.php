@@ -67,6 +67,7 @@
 
                     <div>
                         <a href="admin/mres">Consultar MREs</a>
+                        <a href="admin/mres/create">Crear MRE</a>
                     </div>
                 </div>
 

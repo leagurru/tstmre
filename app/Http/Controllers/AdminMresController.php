@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mre;
+use App\Organismo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminMresController extends Controller
 {
@@ -25,7 +27,7 @@ class AdminMresController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.edificios.create', compact('edificios'));
     }
 
     /**
@@ -36,7 +38,14 @@ class AdminMresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'organismo_id' => 'required'
+        ]);
+
+        Mre::create($input);
+        Session::flash('created_mre', 'La MRE ha sido creada');
+
+        return redirect('/admin/mres');
     }
 
     /**
@@ -58,7 +67,9 @@ class AdminMresController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mre = Mre::findOrFail($id);
+        $organismos = Organismo::pluck('nombre','id')->all();
+        return view('admin.mres.edit', compact('mre','organismos'));
     }
 
     /**
@@ -70,7 +81,15 @@ class AdminMresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mre = Mre::findOrFail($id);
+
+        $input = $request->validate([
+            'organismo_id' => 'required'
+        ]);
+
+        $mre->update($input);
+        Session::flash('updated_mre', 'La MRE ha sido actualizada');
+        return redirect('/admin/mres');
     }
 
     /**
@@ -81,6 +100,9 @@ class AdminMresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mre = Mre::findOrFail($id);
+        $mre->delete();
+        Session::flash('deleted_mre','La MRE ha sido borrada');
+        return redirect('admin/mres');
     }
 }
