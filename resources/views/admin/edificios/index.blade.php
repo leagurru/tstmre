@@ -6,10 +6,10 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
+            {{--<th>Id</th>--}}
             <th>Dirección</th>
-            <th>Creado</th>
-            <th>Actualizado</th>
+            {{--<th>Creado</th>--}}
+            {{--<th>Actualizado</th>--}}
         </tr>
         </thead>
         <tbody>
@@ -18,10 +18,10 @@
             @foreach($edificios as $edificio)
 
                 <tr>
-                    <td>{{$edificio->id}}</td>
+                    {{--<td>{{$edificio->id}}</td>--}}
                     <td><a href="{{route('admin.edificios.edit',$edificio->id)}}">{{$edificio->direccion}}</a></td>
-                    <td>{{$edificio->created_at}}</td>
-                    <td>{{$edificio->updated_at}}</td>
+                    {{--<td>{{$edificio->created_at}}</td>--}}
+                    {{--<td>{{$edificio->updated_at}}</td>--}}
                 </tr>
 
             @endforeach

@@ -6,13 +6,13 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
+            {{--<th>Id</th>--}}
             <th>Nombre</th>
             <th>Organismo</th>
             <th>Email</th>
-            <th>Creado</th>
-            <th>Actualizado</th>
-            <th>Editar</th>
+            {{--<th>Creado</th>--}}
+            {{--<th>Actualizado</th>--}}
+            {{--<th>Editar</th>--}}
         </tr>
         </thead>
         <tbody>
@@ -21,15 +21,12 @@
             @foreach($users as $user)
 
                 <tr>
-                    <td>{{$user->id}}</td>
+                    {{--<td>{{$user->id}}</td>--}}
                     <td><a href="{{route('admin.users.edit',$user->id)}}">{{$user->name}}</a></td>
                     <td>{{$user->organismo->nombre}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->created_at}}</td>
-                    <td>{{$user->updated_at}}</td>
-                    {{--<td><a href="{{route('admin.users.edit',$user->id)}}"><span class="glyphicon glyphicon-zoom-in"></span> Editar</a></td>--}}
-
-                    {{--<td><a href=""{{route('admin.users.edit',$user->id)}}"" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span> Editar</a></td>--}}
+                    {{--<td>{{$user->created_at}}</td>--}}
+                    {{--<td>{{$user->updated_at}}</td>--}}
                 </tr>
 
             @endforeach

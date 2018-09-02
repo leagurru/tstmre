@@ -6,7 +6,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
+            {{--<th>Id</th>--}}
             <th>Nombre del Organismo</th>
             <th>Edificio</th>
             <th>Piso</th>
@@ -20,8 +20,7 @@
             @foreach($organismos as $organismo)
 
                 <tr>
-                    <td>{{$organismo->id}}</td>
-                    {{--<td>{{$organismo->nombre}}</td>--}}
+                    {{--<td>{{$organismo->id}}</td>--}}
                     <td><a href="{{route('admin.organismos.edit',$organismo->id)}}">{{$organismo->nombre}}</a></td>
                     <td>{{$organismo->edificio->direccion}}</td>
                     <td>{{$organismo->piso}}</td>
