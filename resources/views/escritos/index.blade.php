@@ -6,11 +6,10 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Organismo</th>
             <th>Causa N°</th>
             <th>Causa Año</th>
             <th>Carátula</th>
+            <th>Organismo</th>
             <th>Observaciones</th>
             <th>Usuario</th>
         </tr>
@@ -21,12 +20,12 @@
             @foreach($escritos as $escrito)
 
                 <tr>
-                    <td>{{$escrito->id}}</td>
-                    <td>{{$escrito->organismo->nombre}}</td>
                     <td>{{$escrito->causaNumero}}</td>
                     <td>{{$escrito->causaAnio}}</td>
-                    {{--<td><a href="{{route('escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>--}}
+                    <td><a href="{{route('escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>
+                    <td>{{$escrito->organismo->nombre}}</td>
                     <td>{{$escrito->observaciones}}</td>
+                    <td>{{$escrito->user->name}}</td>
                 </tr>
 
             @endforeach

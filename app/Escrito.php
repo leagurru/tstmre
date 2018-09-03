@@ -11,9 +11,9 @@ class Escrito extends Model
     ];
 
     public function user(){
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
     public function organismo(){
-        return $this->hasOne('App\Organismo');
+        return $this->belongsTo('App\Organismo');
     }
 }

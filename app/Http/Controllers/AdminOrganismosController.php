@@ -50,7 +50,7 @@ class AdminOrganismosController extends Controller
 
         Session::flash('success', 'El organismo ha sido creado');
 
-        return redirect()->back();
+        return redirect()->back;
         //return redirect('/admin/organismos');
     }
 

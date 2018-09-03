@@ -20,7 +20,7 @@ class CreateEscritosTable extends Migration
             $table->integer('causaNumero');
             $table->integer('causaAnio');
             $table->string('caratula');
-            $table->string('observaciones');
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }
