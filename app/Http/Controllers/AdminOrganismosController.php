@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Edificio;
+use App\Http\Requests\Admin\CreateOrganismoRequest;
 use App\Organismo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -37,18 +38,20 @@ class AdminOrganismosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateOrganismoRequest $request)
     {
-        $input = $request->validate([
-            'nombre' => 'required',
-            'edificio_id' => 'required',
-            'piso' => 'required|integer'
-        ]);
+//        $input = $request->validate([
+//            'nombre' => 'required',
+//            'edificio_id' => 'required',
+//            'piso' => 'required|integer'
+//        ]);
 
-        Organismo::create($input);
-        Session::flash('created_organismo', 'El organismo ha sido creado');
+        Organismo::create($request->all());
 
-        return redirect('/admin/organismos');
+        Session::flash('success', 'El organismo ha sido creado');
+
+        return redirect()->back();
+        //return redirect('/admin/organismos');
     }
 
     /**
@@ -111,7 +114,7 @@ class AdminOrganismosController extends Controller
     {
         $organismo = Organismo::findOrFail($id);
         $organismo->delete();
-        Session::flash('deleted_organismo','El organismo ha sido borrado');
+        Session::flash('success','Registro borrado');
 
         return redirect('/admin/organismos');
     }

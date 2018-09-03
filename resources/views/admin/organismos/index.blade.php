@@ -2,6 +2,11 @@
 
 @section('content')
 
+    <div class="row">
+        @include('includes.success')
+    </div>
+
+
     <h1>Organismos</h1>
     <table class="table">
         <thead>

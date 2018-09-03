@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('content')
 
+
+
     <h1>Creación de un Organismo</h1>
 
     {{--<div class="row">--}}
@@ -44,5 +46,8 @@
         @include('includes.form_error')
     </div>
 
+    <div class="row">
+    @include('includes.success')
+    </div>
 
 @stop
