@@ -26,7 +26,8 @@ class UsersRequest extends FormRequest
         return [
             'name'         => 'required',
             'organismo_id' => 'required',
-            'email'        => 'required'
+            'email'        => 'required|unique|email',
+            'password'     => 'required'
         ];
     }
 }

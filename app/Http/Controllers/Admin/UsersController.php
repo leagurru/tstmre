@@ -69,7 +69,10 @@ class UsersController extends Controller
 //        $input = $request->except(['password']);
 //        $input['password'] = bcrypt($request->password);
 
-        User::create($input);
+//        User::create($request->all());
+
+        $validated = $request->validated();
+        User::create($validated->all());
         Session::flash('created_user', 'El usuario ha sido creado');
 
         return redirect('/admin/users');

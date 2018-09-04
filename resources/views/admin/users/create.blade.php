@@ -3,7 +3,10 @@
 
     <h1>Creación de Usuario</h1>
 
-    {!! Form::open(['method'=>'POST','action'=>'UsersController'])  !!}
+    {{--{!! Form::open(['method'=>'POST','action'=>'UsersController'])  !!}--}}
+
+    {!! Form::open(['method'=>'POST','url'=>'/admin/users/'])  !!}
+
     {{csrf_field()}}
 
     <div class="form-group">
