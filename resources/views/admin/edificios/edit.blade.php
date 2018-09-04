@@ -7,7 +7,10 @@
 
 
         <div class="col-sm-9">
-            {!! Form::model($edificio,['method'=>'PATCH','action'=>['AdminEdificiosController@update', $edificio->id]])  !!}
+{{--            {!! Form::model($edificio,['method'=>'PATCH','action'=>['Admin\EdificiosController@update', $edificio->id]])  !!}--}}
+
+            {!! Form::model($edificio,['method'=>'PATCH','url'=>['/admin/edificios/' . $edificio->id]])  !!}
+
 
             {{csrf_field()}}
 
@@ -21,7 +24,7 @@
             </div>
             {!! Form::close() !!}
 
-            {!! Form::open(['method'=>'DELETE','action'=> ['AdminEdificiosController@destroy', $edificio->id]]) !!}
+            {!! Form::open(['method'=>'DELETE','action'=> ['Admin\EdificiosController@destroy', $edificio->id]]) !!}
 
             <div class="form-group">
                 {!! Form::submit('Borrar Edificio',['class'=>'btn btn-danger col-sm-6']) !!}

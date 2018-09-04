@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Mre;
-use App\Organismo;
+use App\Http\Controllers\Controller;
+use App\Modelos\Admin\Edificio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class AdminMresController extends Controller
+class EdificiosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AdminMresController extends Controller
      */
     public function index()
     {
-        $mres = Mre::paginate(10);
-        return view('admin.mres.index',compact('mres'));
+        $edificios = Edificio::paginate(10);
+        return view('admin.edificios.index',compact('edificios'));
     }
 
     /**
@@ -39,13 +39,13 @@ class AdminMresController extends Controller
     public function store(Request $request)
     {
         $input = $request->validate([
-            'organismo_id' => 'required'
+            'direccion' => 'required'
         ]);
 
-        Mre::create($input);
-        Session::flash('created_mre', 'La MRE ha sido creada');
+        Edificio::create($input);
+        Session::flash('created_edificio', 'El edificio ha sido creado');
 
-        return redirect('/admin/mres');
+        return redirect('/admin/edificios');
     }
 
     /**
@@ -59,10 +59,6 @@ class AdminMresController extends Controller
         //
     }
 
-//    public function showOrganismosMesa($id){
-//        $organismosMesa = Organismo::where('role_id',$request->roleid)->pluck('name','id');
-//    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,9 +67,8 @@ class AdminMresController extends Controller
      */
     public function edit($id)
     {
-        $mre = Mre::findOrFail($id);
-        $organismos = Organismo::pluck('nombre','id')->all();
-        return view('admin.mres.edit', compact('mre','organismos'));
+        $edificio =  Edificio::findOrFail($id);
+        return view('admin.edificios.edit',compact('edificio'));
     }
 
     /**
@@ -85,15 +80,15 @@ class AdminMresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mre = Mre::findOrFail($id);
+        $edificio = Edificio::findOrFail($id);
 
         $input = $request->validate([
-            'organismo_id' => 'required'
+            'direccion' => 'required'
         ]);
 
-        $mre->update($input);
-        Session::flash('updated_mre', 'La MRE ha sido actualizada');
-        return redirect('/admin/mres');
+        $edificio->update($input);
+        Session::flash('updated_edificio', 'El edificio ha sido actualizado');
+        return redirect('/admin/edificios');
     }
 
     /**
@@ -104,9 +99,9 @@ class AdminMresController extends Controller
      */
     public function destroy($id)
     {
-        $mre = Mre::findOrFail($id);
-        $mre->delete();
-        Session::flash('deleted_mre','La MRE ha sido borrada');
-        return redirect('admin/mres');
+        $edificio = Edificio::findOrFail($id);
+        $edificio->delete();
+        Session::flash('deleted_edificio','El edificio ha sido borrado');
+        return redirect('admin/edificios');
     }
 }

@@ -34,37 +34,38 @@ Route::resource('admin/users','AdminUsersController',['names'=>[
 
 ]]);
 
-//Route::resource('admin/organismos','AdminOrganismosController');
-Route::resource('admin/organismos','AdminOrganismosController',['names'=>[
-    'index'  => 'admin.organismos.index',
-    'create' => 'admin.organismos.create',
-    'store' => 'admin.organismos.store',
-    'edit' => 'admin.organismos.edit'
+//Route::resource('admin/organismos','OrganismosController');
+//Route::resource('admin/organismos','OrganismosController',['names'=>[
+//    'index'  => 'admin.organismos.index',
+//    'create' => 'admin.organismos.create',
+//    'store' => 'admin.organismos.store',
+//    'edit' => 'admin.organismos.edit'
+//
+//]]);
 
-]]);
 
-//Route::resource('admin/mres','AdminMresController');
-Route::resource('admin/mres','AdminMresController',['names'=>[
-    'index'  => 'admin.mres.index',
-    'create' => 'admin.mres.create',
-    'store' => 'admin.mres.store',
-    'edit' => 'admin.mres.edit'
-]]);
 
-//Route::resource('admin/edificios','AdminEdificiosController');
-Route::resource('admin/edificios','AdminEdificiosController',['names'=>[
-    'index'  => 'admin.edificios.index',
-    'create' => 'admin.edificios.create',
-    'store' => 'admin.edificios.store',
-    'edit' => 'admin.edificios.edit'
-]]);
+Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
 
-Route::resource('escritos','EscritosController',['names'=>[
-    'index'  => 'escritos.index',
-    'create' => 'escritos.create',
-    'store' => 'escritos.store',
-    'edit' => 'escritos.edit'
-]]);
+    Route::resource('edificios','EdificiosController');
+    Route::resource('mres','MresController');
+    Route::resource('organismos','OrganismosController');
+
+});
+
+
+Route::prefix('user')->name('user.')->namespace('User')->group(function () {
+    Route::resource('escritos','EscritosController');
+});
+
+
+
+//Route::resource('escritos','EscritosController',['names'=>[
+//    'index'  => 'escritos.index',
+//    'create' => 'escritos.create',
+//    'store' => 'escritos.store',
+//    'edit' => 'escritos.edit'
+//]]);
 
 
 //Route::resource('escritos','EscritosController',['names'=>[

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Edificio;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateOrganismoRequest;
-use App\Organismo;
+use App\Modelos\Admin\Edificio;
+use App\Modelos\Admin\Organismo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class AdminOrganismosController extends Controller
+class OrganismosController extends Controller
 {
     /**
      * Display a listing of the resource.

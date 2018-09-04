@@ -7,7 +7,9 @@
 
 
         <div class="col-sm-9">
-            {!! Form::model($mre,['method'=>'PATCH','action'=>['AdminMresController@update', $mre->id]])  !!}
+            {{--{!! Form::model($mre,['method'=>'PATCH','action'=>['MresController', $mre->id]])  !!}--}}
+
+            {!! Form::model($mre,['method'=>'PATCH','url'=>['/admin/mres/' . $mre->id]])  !!}
 
             {{csrf_field()}}
 
@@ -21,7 +23,7 @@
             </div>
             {!! Form::close() !!}
 
-            {!! Form::open(['method'=>'DELETE','action'=> ['AdminMresController@destroy', $mre->id]]) !!}
+            {!! Form::open(['method'=>'DELETE','action'=> ['Admin\MresController@destroy', $mre->id]]) !!}
 
             <div class="form-group">
                 {!! Form::submit('Borrar MRE',['class'=>'btn btn-danger col-sm-6']) !!}

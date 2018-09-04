@@ -79,8 +79,8 @@
                     </div>
 
                     <div>
-                        <a href="escritos">Todos los Escritos</a>
-                        <a href="escritos/create">Nuevo Escrito</a>
+                        <a href="user/escritos">Todos los Escritos</a>
+                        <a href="user/escritos/create">Nuevo Escrito</a>
 
                     </div>
                 </div>

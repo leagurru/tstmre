@@ -7,7 +7,9 @@
 
 
         <div class="col-sm-9">
-            {!! Form::model($organismo,['method'=>'PATCH','action'=>['AdminOrganismosController@update', $organismo->id]])  !!}
+            {{--{!! Form::model($organismo,['method'=>'PATCH','action'=>['OrganismosController', $organismo->id]])  !!}--}}
+
+            {!! Form::model($organismo,['method'=>'PATCH','url'=>['/admin/organismos/' . $organismo->id]])  !!}
 
             {{csrf_field()}}
 
@@ -36,7 +38,7 @@
             </div>
             {!! Form::close() !!}
 
-            {!! Form::open(['method'=>'DELETE','action'=> ['AdminOrganismosController@destroy', $organismo->id]]) !!}
+            {!! Form::open(['method'=>'DELETE','action'=> ['Admin\OrganismosController@destroy', $organismo->id]]) !!}
 
             <div class="form-group">
                 {!! Form::submit('Borrar Organismo',['class'=>'btn btn-danger col-sm-6']) !!}

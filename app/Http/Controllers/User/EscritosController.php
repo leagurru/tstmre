@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Escrito;
+use App\Http\Controllers\Controller;
+use App\Modelos\User\Escrito;
 use App\Http\Requests\CreateEscritoRequest;
-use App\Organismo;
+use App\Modelos\Admin\Organismo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -15,7 +16,7 @@ class EscritosController extends Controller
     {
         $escritos = Escrito::paginate(10);
 
-        return view('escritos.index',compact('escritos'));
+        return view('user.escritos.index',compact('escritos'));
     }
 
     /**
@@ -27,14 +28,14 @@ class EscritosController extends Controller
     {
         $organismos = Organismo::pluck('nombre','id')->all();
         $users = User::pluck('name','id')->all();
-        return view('escritos.create', compact('organismos','users'));
+        return view('user.escritos.create', compact('organismos','users'));
     }
 
     public function store(CreateEscritoRequest $request)
     {
         Escrito::create($request->all());
         Session::flash('success', 'Registro creado');
-        return redirect('/escritos');
+        return redirect('/user/escritos');
     }
 
     /**
@@ -59,7 +60,7 @@ class EscritosController extends Controller
         $escrito    =  Escrito::findOrFail($id);
         $organismos = Organismo::pluck('nombre','id')->all();
         $users   = User::pluck('name','id')->all();
-        return view('escritos.edit',compact('escrito','organismos','users'));
+        return view('user.escritos.edit',compact('escrito','organismos','users'));
     }
 
     /**
@@ -75,7 +76,7 @@ class EscritosController extends Controller
 
         $escrito->update($request->all());
         Session::flash('success', 'El escrito ha sido actualizado');
-        return redirect('/escritos');
+        return redirect('/user/escritos');
     }
 
     /**
@@ -89,7 +90,7 @@ class EscritosController extends Controller
         $escrito = Edificio::findOrFail($id);
         $escrito->delete();
         Session::flash('success','El escrito ha sido borrado');
-        return redirect('escritos');
+        return redirect('user.escritos');
     }
 
 

@@ -9,7 +9,7 @@
 
 
         {{--<div class="col-sm-9">--}}
-            {!! Form::open(['method'=>'POST','action'=>'AdminOrganismosController@store'])  !!}
+            {!! Form::open(['method'=>'POST','action'=>'OrganismosController'])  !!}
 
             {{csrf_field()}}
 

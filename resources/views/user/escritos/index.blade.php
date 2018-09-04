@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{$escrito->causaNumero}}</td>
                     <td>{{$escrito->causaAnio}}</td>
-                    <td><a href="{{route('escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>
+                    <td><a href="{{route('user.escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>
                     <td>{{$escrito->organismo->nombre}}</td>
                     <td>{{$escrito->observaciones}}</td>
                     <td>{{$escrito->user->name}}</td>

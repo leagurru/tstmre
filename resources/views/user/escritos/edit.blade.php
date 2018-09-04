@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 @section('content')
 
+    <h1>Edición de un Organismo</h1>
+
+    <div class="row">
 
 
-    <h1>Creación de un Organismo</h1>
+        <div class="col-sm-9">
+            {{--{!! Form::model($escrito,['method'=>'PATCH','action'=>['EscritosController@update', $escrito->id]])  !!}--}}
 
-    {{--<div class="row">--}}
-
-
-        {{--<div class="col-sm-9">--}}
-            {!! Form::open(['method'=>'POST','action'=>'EscritosController@store'])  !!}
+            {!! Form::model($escrito,['method'=>'PATCH','url'=>['/user/escritos/' . $escrito->id]])  !!}
 
             {{csrf_field()}}
 
@@ -43,21 +43,26 @@
                 {!! Form::select('user_id', [''=>'Indique el Usuario'] + $users,null,['class'=>'form-control']) !!}
             </div>
 
-            <div class="form-group">
-                {!! Form::submit('Crear un Nuevo Escrito',['class'=>'btn btn-primary']) !!}
+               <div class="form-group">
+                {!! Form::submit('Actualizar Escrito',['class'=>'btn btn-primary col-sm-6']) !!}
             </div>
             {!! Form::close() !!}
 
-        {{--</div>--}}
+            {!! Form::open(['method'=>'DELETE','action'=> ['User\EscritosController@destroy', $escrito->id]]) !!}
 
-    {{--</div>--}}
+            <div class="form-group">
+                {!! Form::submit('Borrar Escrito',['class'=>'btn btn-danger col-sm-6']) !!}
+            </div>
+
+            {!! Form::close() !!}
+
+        </div>
+
+    </div>
 
     <div class="row">
         @include('includes.form_error')
     </div>
 
-    <div class="row">
-    @include('includes.success')
-    </div>
 
 @stop

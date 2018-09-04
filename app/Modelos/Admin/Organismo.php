@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class Organismo extends Model
     ];
 
     public function edificio(){
-        return $this->belongsTo('App\Edificio');
+        return $this->belongsTo('App\Modelos\Admin\Edificio');
     }
 
     public function escrito(){
@@ -22,7 +22,7 @@ class Organismo extends Model
         return $this->hasMany('App\User');
     }
     public function mre(){
-        return $this->hasOne('App\Mre');
+        return $this->hasOne('App\Modelos\Admin\Mre');
     }
 }
 

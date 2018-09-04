@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos\User;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,6 @@ class Escrito extends Model
         return $this->belongsTo('App\User');
     }
     public function organismo(){
-        return $this->belongsTo('App\Organismo');
+        return $this->belongsTo('App\Modelos\Admin\Organismo');
     }
 }

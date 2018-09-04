@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,10 +12,10 @@ class Edificio extends Model
     ];
 
     public function mre(){
-        return $this->hasMany('App\Mre');
+        return $this->hasMany('App\Modelos\Admin\Mre');
     }
 
     public function organismo(){
-        return $this->hasMany('App\Organismo');
+        return $this->hasMany('App\Modelos\Admin\Organismo');
     }
 }
