@@ -9,7 +9,8 @@
 
 
         {{--<div class="col-sm-9">--}}
-            {!! Form::open(['method'=>'POST','action'=>'OrganismosController'])  !!}
+            {{--{!! Form::open(['method'=>'POST','action'=>'OrganismosController'])  !!}--}}
+        {!! Form::open(['method'=>'POST','url'=>'/admin/organismos/'])  !!}
 
             {{csrf_field()}}
 

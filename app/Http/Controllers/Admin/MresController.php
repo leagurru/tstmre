@@ -28,7 +28,8 @@ class MresController extends Controller
      */
     public function create()
     {
-        return view('admin.edificios.create', compact('edificios'));
+        $organismos = Organismo::pluck('nombre','id')->all();
+        return view('admin.mres.create', compact('organismos'));
     }
 
     /**

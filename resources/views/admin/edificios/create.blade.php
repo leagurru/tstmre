@@ -7,7 +7,8 @@
 
 
         {{--<div class="col-sm-9">--}}
-            {!! Form::open(['method'=>'POST','action'=>'AdminEdificiosController@store'])  !!}
+            {{--{!! Form::open(['method'=>'POST','action'=>'AdminEdificiosController@store'])  !!}--}}
+            {!! Form::open(['method'=>'POST','url'=>'/admin/edificios/'])  !!}
 
             {{csrf_field()}}
 

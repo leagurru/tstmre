@@ -34,17 +34,6 @@ Route::resource('admin/users','AdminUsersController',['names'=>[
 
 ]]);
 
-//Route::resource('admin/organismos','OrganismosController');
-//Route::resource('admin/organismos','OrganismosController',['names'=>[
-//    'index'  => 'admin.organismos.index',
-//    'create' => 'admin.organismos.create',
-//    'store' => 'admin.organismos.store',
-//    'edit' => 'admin.organismos.edit'
-//
-//]]);
-
-
-
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
 
     Route::resource('edificios','EdificiosController');
@@ -53,21 +42,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
 
 });
 
-
 Route::prefix('user')->name('user.')->namespace('User')->group(function () {
     Route::resource('escritos','EscritosController');
 });
 
-
-
-//Route::resource('escritos','EscritosController',['names'=>[
-//    'index'  => 'escritos.index',
-//    'create' => 'escritos.create',
-//    'store' => 'escritos.store',
-//    'edit' => 'escritos.edit'
-//]]);
-
-
-//Route::resource('escritos','EscritosController',['names'=>[
-//    'index'  => 'escritos.index'
-//]]);

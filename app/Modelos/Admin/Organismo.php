@@ -16,7 +16,7 @@ class Organismo extends Model
     }
 
     public function escrito(){
-        return $this->hasMany('App\Escrito');
+        return $this->hasMany('App\Modelos\User\Escrito');
     }
     public function user(){
         return $this->hasMany('App\User');

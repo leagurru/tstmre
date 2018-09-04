@@ -3,14 +3,14 @@
 
 
 
-    <h1>Creación de un Organismo</h1>
+    <h1>Nuevo Escrito</h1>
 
     {{--<div class="row">--}}
 
 
         {{--<div class="col-sm-9">--}}
             {{--{!! Form::open(['method'=>'POST','action'=>'EscritosController@store'])  !!}--}}
-        {!! Form::open($escrito,['method'=>'POST','url'=>['/user/escritos/store']])  !!}
+        {!! Form::open(['method'=>'POST','url'=>['/user/escritos/']])  !!}
 
             {{csrf_field()}}
 
