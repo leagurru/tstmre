@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modelos\Admin;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,10 +28,10 @@ class User extends Authenticatable
     ];
 
     public function escritos(){
-        return $this->hasMany('App\Escrito');
+        return $this->hasMany('App\Modelos\User\Escrito');
     }
 
     public function organismo(){
-        return $this->belongsTo('App\Organismo');
+        return $this->belongsTo('App\Modelos\Admin\Organismo');
     }
 }

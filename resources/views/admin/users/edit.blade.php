@@ -7,7 +7,9 @@
 
 
         <div class="col-sm-9">
-            {!! Form::model($user,['method'=>'PATCH','action'=>['AdminUsersController@update', $user->id],'files'=>true])  !!}
+{{--            {!! Form::model($user,['method'=>'PATCH','action'=>['UsersController', $user->id],'files'=>true])  !!}--}}
+            {!! Form::model($user,['method'=>'PATCH','url'=>['/admin/users/' . $user->id]])  !!}
+
             {{csrf_field()}}
 
             <div class="form-group">
@@ -34,7 +36,7 @@
             </div>
             {!! Form::close() !!}
 
-            {!! Form::open(['method'=>'DELETE','action'=> ['AdminUsersController@destroy', $user->id]]) !!}
+            {!! Form::open(['method'=>'DELETE','action'=> ['Admin\UsersController@destroy', $user->id]]) !!}
 
             <div class="form-group">
                 {!! Form::submit('Borrar Usuario',['class'=>'btn btn-danger col-sm-6']) !!}

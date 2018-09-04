@@ -24,18 +24,19 @@ Route::get('/about', function () {
 
 //Route::get('/user','UserController@index');
 
-//Route::resource('admin/users','AdminUsersController');
+//Route::resource('admin/users','UsersController');
 
-Route::resource('admin/users','AdminUsersController',['names'=>[
-    'index'  => 'admin.users.index',
-    'create' => 'admin.users.create',
-    'store' => 'admin.users.store',
-    'edit' => 'admin.users.edit'
-
-]]);
+//Route::resource('admin/users','UsersController',['names'=>[
+//    'index'  => 'admin.users.index',
+//    'create' => 'admin.users.create',
+//    'store' => 'admin.users.store',
+//    'edit' => 'admin.users.edit'
+//
+//]]);
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
 
+    Route::resource('users','UsersController');
     Route::resource('edificios','EdificiosController');
     Route::resource('mres','MresController');
     Route::resource('organismos','OrganismosController');
