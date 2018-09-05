@@ -11,6 +11,12 @@ class UsersRequest extends FormRequest
      *
      * @return bool
      */
+
+    public function __constructor($method, $parameters)
+    {
+//        dd($this);
+    }
+
     public function authorize()
     {
         return true;
@@ -26,7 +32,7 @@ class UsersRequest extends FormRequest
         return [
             'name'         => 'required',
             'organismo_id' => 'required',
-            'email'        => 'required|unique:users|email',
+            'email' => 'required|email|unique:users,email,'.$this->id,
             'password'     => 'required'
         ];
     }
