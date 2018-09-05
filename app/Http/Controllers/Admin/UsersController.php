@@ -48,31 +48,8 @@ class UsersController extends Controller
 
     public function store(UsersRequest $request)
     {
-//        if (trim($request->password) == '') {
-////            $input = $request->except(('password'));
-//                $input = $request->validate([
-//                'organismo_id' => 'required',
-//                'name' => 'required',
-//                'email' => 'required|email'
-//            ]);
-//        } else {
-////            $input = $request->all();
-//            $input = $request->validate([
-//                'organismo_id' => 'required',
-//                'name' => 'required',
-//                'email' => 'required|email',
-//                'password' => 'required'
-//            ]);
-//            $input['password'] = bcrypt($request->password);
-//        }
+        User::create($request->all());
 
-//        $input = $request->except(['password']);
-//        $input['password'] = bcrypt($request->password);
-
-//        User::create($request->all());
-
-        $validated = $request->validated();
-        User::create($validated->all());
         Session::flash('created_user', 'El usuario ha sido creado');
 
         return redirect('/admin/users');

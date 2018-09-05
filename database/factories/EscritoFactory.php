@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Escrito::class, function (Faker $faker) {
+$factory->define(App\Modelos\User\Escrito::class, function (Faker $faker) {
     return [
         'organismo_id' => $faker->numberBetween(1,4),
         'user_id' => $faker->numberBetween(1,50),

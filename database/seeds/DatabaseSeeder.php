@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
         DB::table('users')->truncate();
-        factory(App\User::class, 50)->create();
+        factory(App\Modelos\Admin\User::class, 50)->create();
 
         DB::table('mres')->truncate();
         $this->call(MresTableSeeder::class);
@@ -28,27 +28,13 @@ class DatabaseSeeder extends Seeder
         $this->call(EdificiosTableSeeder::class);
 
         DB::table('escritos')->truncate();
-        factory(App\Escrito::class, 100)->create();
+        factory(App\Modelos\User\Escrito::class, 100)->create();
 
 
 
         DB::table('mre_organismo')->truncate();
         $this->call(MreOrganismoTableSeeder::class);
 
-
-//        // relación user y posts
-//        factory(App\User::class, 10)->create()->each(function($user){
-//            $user->posts()->save(factory(App\Post::class)->make());
-//        });
-//
-//        $this->call(RolesTableSeeder::class);
-//        $this->call(CategoriesTableSeeder::class);
-//        factory(App\Photo::class, 1)->create();
-//
-//        // relación comment con commentreply
-//        factory(App\Comment::class, 10)->create()->each(function($c){
-//            $c->replies()->save(factory(App\CommentReply::class)->make());
-//        });
 
 
     }

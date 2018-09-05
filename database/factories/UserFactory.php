@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Modelos\Admin\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'organismo_id' => $faker->numberBetween(101,102),

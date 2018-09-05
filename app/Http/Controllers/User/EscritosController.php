@@ -4,9 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Modelos\User\Escrito;
-use App\Http\Requests\CreateEscritoRequest;
+use App\Http\Requests\User\Escrito\CreateEscritoRequest;
 use App\Modelos\Admin\Organismo;
-use App\User;
+use App\Modelos\Admin\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
