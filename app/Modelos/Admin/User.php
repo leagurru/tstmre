@@ -34,4 +34,13 @@ class User extends Authenticatable
     public function organismo(){
         return $this->belongsTo('App\Modelos\Admin\Organismo');
     }
+
+    public function scopeName($query, $name){
+//        dd("scope: " . $name );
+        if (trim($name) != "" ){
+            $query->where('name', $name);
+        }
+
+
+    }
 }

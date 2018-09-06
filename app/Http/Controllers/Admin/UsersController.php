@@ -18,12 +18,20 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10);
+//        dd($request->get('name'));
+        $users = User::name($request->get('name'))->paginate(10);
         return view('admin.users.index',compact('users'));
     }
 
+
+//    public function index(Request $request)
+//    {
+//        $users = User::paginate(10);
+//        return view('admin.users.index',compact('users'));
+//    }
+//
     /**
      * Show the form for creating a new resource.
      *
