@@ -21,7 +21,25 @@ class UsersController extends Controller
     public function index(Request $request)
     {
 //        dd($request->get('name'));
-        $users = User::name($request->get('name'))->paginate(10);
+
+//                dd($request);
+//        dd($request->get('name') . $request->get('email'));
+
+        $name  = $request->get('name');
+        $email = $request->get('email');
+
+//        $users = User::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
+
+//        $users = User::name($name)->email($email)
+//        paginate(10);
+
+//        $users = User::orderBy('id','DESC')
+//            ->name($name)
+//            ->paginate(10);
+
+
+        $users = User::name($name)->email($email)->paginate(10);
+
         return view('admin.users.index',compact('users'));
     }
 

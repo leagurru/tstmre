@@ -27,20 +27,39 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function escritos(){
+
+
+    public function escritos()
+    {
         return $this->hasMany('App\Modelos\User\Escrito');
     }
 
-    public function organismo(){
+    public function organismo()
+    {
         return $this->belongsTo('App\Modelos\Admin\Organismo');
     }
 
-    public function scopeName($query, $name){
+
+    // Query scope
+    public function scopeName($query, $name)
+    {
 //        dd("scope: " . $name );
-        if (trim($name) != "" ){
-            $query->where('name', $name);
+//        if (trim($name) != "") {
+        if ($name) {
+
+
+            return $query->where('name', 'LIKE', "%$name%");
         }
 
-
     }
+
+    public function scopeEmail($query, $email)
+    {
+//        dd("scope: " . $email );
+        if ($email) {
+            return $query->where('email', 'LIKE', "%$email%");
+        }
+    }
+
 }
+

@@ -22,7 +22,10 @@ Route::get('/about', function () {
     return 'hi about page';
 });
 
-//Route::get('/user','UserController@index');
+Route::get('admin/users','Admin\UsersController@index')->name('admin.users');
+Route::get('admin/users/create','Admin\UsersController@create')->name('admin.users.create');
+Route::get('admin/users/store','Admin\UsersController@store')->name('admin.users.store');
+Route::get('admin/users/edit','Admin\UsersController@edit')->name('admin.users.edit');
 
 //Route::resource('admin/users','UsersController');
 
@@ -36,7 +39,7 @@ Route::get('/about', function () {
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
 
-    Route::resource('users','UsersController');
+//    Route::resource('users','UsersController');
     Route::resource('edificios','EdificiosController');
     Route::resource('mres','MresController');
     Route::resource('organismos','OrganismosController');
