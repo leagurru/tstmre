@@ -10,6 +10,7 @@ use App\Modelos\Admin\User;
 //use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 
 class UsersController extends Controller
 {
@@ -30,16 +31,21 @@ class UsersController extends Controller
 
 //        $users = User::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
 
-        $users = User::name($name)->email($email)->paginate(10);
+//        $users = User::orderBy('id','DESC')->name($name)->email($email)->paginate(10);
+
+                $users = User::name($name)->email($email)->orderBy('id','DESC')->paginate(10);
 
 //        $users = User::orderBy('id','DESC')
 //            ->name($name)
 //            ->paginate(10);
 
-
 //        $users = User::name($name)->email($email)->paginate(10);
 
+//        return View::make('admin.users.index',compact('users'));;
+
         return view('admin.users.index',compact('users'));
+//        return view('admin.users.index', ['users' => $users]);
+
     }
 
 
