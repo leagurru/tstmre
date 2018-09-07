@@ -4,19 +4,13 @@
 
     <h1>Usuarios</h1>
 
-    {{--<div class="input-group mb-3">--}}
-        {{--<input type="text" class="form-control" placeholder="Buscar Usuario" aria-label="Recipient's username" aria-describedby="basic-addon2">--}}
-        {{--<div class="input-group-append">--}}
-            {{--<button class="btn btn-outline-secondary" type="button">Buscar</button>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 
-    <div class="container">
+    {{--<div class="container">--}}
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>
-                        Usuarios
+                    {{--<h1>--}}
+                        {{--Usuarios--}}
                         {!! Form::open(['route'=>'admin.users','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
                         {{csrf_field()}}
 
@@ -34,7 +28,7 @@
 
 
                         {!! Form::close() !!}
-                    </h1>
+                    {{--</h1>--}}
                 </div>
 
             </div>
@@ -76,7 +70,7 @@
         </div>
 
 
-    </div>
+    {{--</div>--}}
 
     {{--{!! Form::open(['route'=>'admin.users.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right', 'role'=>'search'])  !!}--}}
     {{--{{csrf_field()}}--}}

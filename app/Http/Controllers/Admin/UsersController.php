@@ -30,15 +30,14 @@ class UsersController extends Controller
 
 //        $users = User::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
 
-//        $users = User::name($name)->email($email)
-//        paginate(10);
+        $users = User::name($name)->email($email)->paginate(10);
 
 //        $users = User::orderBy('id','DESC')
 //            ->name($name)
 //            ->paginate(10);
 
 
-        $users = User::name($name)->email($email)->paginate(10);
+//        $users = User::name($name)->email($email)->paginate(10);
 
         return view('admin.users.index',compact('users'));
     }
