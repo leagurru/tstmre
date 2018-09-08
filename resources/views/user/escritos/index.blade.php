@@ -1,8 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-
-    <h1>Escritos</h1>
+    <div class="row">
+            <h1><a href="{{route('user.escritos.create')}}">Nuevo Escrito</a></h1>
+        {{--<div class="col-md2">--}}
+                {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
+        {{--</div>--}}
+    </div>
 
     {{--<div class="container">--}}
     <div class="row">
@@ -52,19 +56,21 @@
         <div class="col-md8">
             <table class="table table-hover table-striped">
                 <thead>
+
+                {{--<tr>--}}
+                    {{--<th>Fecha</th>--}}
+                    {{--<th>Causa N°</th>--}}
+                    {{--<th>Causa Año</th>--}}
+                    {{--<th>Carátula</th>--}}
+                    {{--<th>Organismo</th>--}}
+                    {{--<th>Observaciones</th>--}}
+                    {{--<th>Usuario</th>--}}
+                    {{--<th>--}}
+                        {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
+                    {{--</th>--}}
+                {{--</tr>--}}
+
                 <tr>
-                    <th>Fecha</th>
-                    <th>Causa N°</th>
-                    <th>Causa Año</th>
-                    <th>Carátula</th>
-                    <th>Organismo</th>
-                    <th>Observaciones</th>
-                    <th>Usuario</th>
-                    <th>
-                        <a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>
-                    </th>
-                </tr>
-<tr>
                 {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
                 {{csrf_field()}}
             <th>
