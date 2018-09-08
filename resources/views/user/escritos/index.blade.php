@@ -4,48 +4,47 @@
 
     <h1>Escritos</h1>
 
-
     {{--<div class="container">--}}
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
-                {{csrf_field()}}
+                {{--{!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}--}}
+                {{--{{csrf_field()}}--}}
 
-                <div class="form-group">
-                    {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    {!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--{!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}--}}
+                {{--</div>--}}
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary" type="button">Buscar</button>
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--<button type="submit" class="btn btn-primary" type="button">Buscar</button>--}}
+                {{--</div>--}}
 
 
-                {!! Form::close() !!}
+                {{--{!! Form::close() !!}--}}
             </div>
 
         </div>
@@ -61,8 +60,63 @@
                     <th>Organismo</th>
                     <th>Observaciones</th>
                     <th>Usuario</th>
+                    <th>
+                        <a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>
+                    </th>
+                </tr>
+<tr>
+                {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
+                {{csrf_field()}}
+            <th>
+                <div class="form-group">
+                    {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
+                </div>
+            </th>
 
-            </tr>
+
+
+            <th>
+                <div class="form-group">
+                    {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
+                </div>
+            </th>
+
+    <th>
+        <div class="form-group">
+            {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
+        </div>
+    </th>
+    <th>
+        <div class="form-group">
+            {!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}
+        </div>
+    </th>
+
+
+
+            <th>
+                <div class="form-group">
+                    {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
+                </div>
+            </th>
+            <th>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" type="button">Buscar</button>
+                </div>
+            </th>
+
+            {!! Form::close() !!}
+</th>
             </thead>
             <tbody>
 
