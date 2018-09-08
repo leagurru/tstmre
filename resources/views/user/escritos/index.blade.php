@@ -1,12 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="row">
-            <h1><a href="{{route('user.escritos.create')}}">Nuevo Escrito</a></h1>
+            <h1 align="center"><a href="{{route('user.escritos.create')}}">Nuevo Escrito</a></h1>
         {{--<div class="col-md2">--}}
                 {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
         {{--</div>--}}
-    </div>
 
     {{--<div class="container">--}}
     <div class="row">
