@@ -71,57 +71,58 @@
                 <tr>
                 {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
                 {{csrf_field()}}
-            <th>
-                <div class="form-group">
-                    {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
-                </div>
-            </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
+                        </div>
+                    </th>
 
 
 
-            <th>
-                <div class="form-group">
-                    {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
-                </div>
-            </th>
-            <th>
-                <div class="form-group">
-                    {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
-                </div>
-            </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
+                        </div>
+                    </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
+                        </div>
+                    </th>
 
-    <th>
-        <div class="form-group">
-            {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
-        </div>
-    </th>
-    <th>
-        <div class="form-group">
-            {!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}
-        </div>
-    </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
+                        </div>
+                    </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}
+                        </div>
+                    </th>
 
 
 
-            <th>
-                <div class="form-group">
-                    {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
-                </div>
-            </th>
-            <th>
-                <div class="form-group">
-                    {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
-                </div>
-            </th>
-            <th>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary" type="button">Buscar</button>
-                </div>
-            </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
+                        </div>
+                    </th>
+                    <th>
+                        <div class="form-group">
+                            {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
+                        </div>
+                    </th>
+                    <th>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" type="button">Buscar</button>
+                        </div>
+                    </th>
 
-            {!! Form::close() !!}
-</th>
+                {!! Form::close() !!}
+            </tr>
             </thead>
+
             <tbody>
 
                 @if($escritos)
