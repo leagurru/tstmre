@@ -8,8 +8,8 @@
 
     {{--<div class="container">--}}
     <div class="row">
-        <div class="col-md-12">
-            <div class="page-header">
+        {{--<div class="col-md-12">--}}
+            {{--<div class="page-header">--}}
                 {{--{!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}--}}
                 {{--{{csrf_field()}}--}}
 
@@ -47,9 +47,9 @@
 
 
                 {{--{!! Form::close() !!}--}}
-            </div>
+            {{--</div>--}}
 
-        </div>
+        {{--</div>--}}
 
         <div class="col-md8">
             <table class="table table-hover table-striped">
