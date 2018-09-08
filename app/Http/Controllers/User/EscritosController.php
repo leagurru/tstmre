@@ -12,11 +12,31 @@ use Illuminate\Support\Facades\Session;
 
 class EscritosController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $escritos = Escrito::paginate(10);
+        $fecha         = $request->get('fecha');
+        $organismo_id  = $request->get('organismo_id');
+        $caratula      = $request->get('caratula');
+        $causaNumero   = $request->get('causaNumero');
+        $causaAnio     = $request->get('causaAnio');
+        $observaciones = $request->get('observaciones');
+        $user_id  = $request->get('user_id');
 
-        return view('user.escritos.index',compact('escritos'));
+
+        $escritos = Escrito::caratula($caratula)
+            ->fecha($fecha)
+            ->organismo_id($organismo_id)
+            ->causaNumero($causaNumero)
+            ->causaAnio($causaAnio)
+            ->observaciones($observaciones)
+            ->user_id($user_id)
+            ->orderBy('fecha','DESC')
+            ->paginate(10);
+
+        $organismos = Organismo::pluck('nombre','id')->all();
+        $users      = User::pluck('name','id')->all();
+
+        return view('user.escritos.index',compact('escritos','organismos','users'));
     }
 
     /**

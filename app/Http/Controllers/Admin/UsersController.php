@@ -29,23 +29,8 @@ class UsersController extends Controller
         $name  = $request->get('name');
         $email = $request->get('email');
 
-//        $users = User::name($request->get('name'))->orderBy('id','DESC')->paginate(10);
-
-//        $users = User::orderBy('id','DESC')->name($name)->email($email)->paginate(10);
-
-                $users = User::name($name)->email($email)->orderBy('id','DESC')->paginate(10);
-
-//        $users = User::orderBy('id','DESC')
-//            ->name($name)
-//            ->paginate(10);
-
-//        $users = User::name($name)->email($email)->paginate(10);
-
-//        return View::make('admin.users.index',compact('users'));;
-
+        $users = User::name($name)->email($email)->orderBy('id','DESC')->paginate(10);
         return view('admin.users.index',compact('users'));
-//        return view('admin.users.index', ['users' => $users]);
-
     }
 
 

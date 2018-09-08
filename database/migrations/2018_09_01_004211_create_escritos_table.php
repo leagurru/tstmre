@@ -17,6 +17,7 @@ class CreateEscritosTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('organismo_id');
+            $table->date('fecha');
             $table->integer('causaNumero');
             $table->integer('causaAnio');
             $table->string('caratula');

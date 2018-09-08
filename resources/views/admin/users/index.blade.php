@@ -9,8 +9,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    {{--<h1>--}}
-                        {{--Usuarios--}}
                         {!! Form::open(['route'=>'admin.users.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
                         {{csrf_field()}}
 
@@ -28,7 +26,6 @@
 
 
                         {!! Form::close() !!}
-                    {{--</h1>--}}
                 </div>
 
             </div>
@@ -37,13 +34,9 @@
                 <table class="table table-hover table-striped">
                     <thead>
                     <tr>
-                        {{--<th>Id</th>--}}
                         <th>Nombre</th>
                         <th>Organismo</th>
                         <th>Email</th>
-                        {{--<th>Creado</th>--}}
-                        {{--<th>Actualizado</th>--}}
-                        {{--<th>Editar</th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -52,7 +45,6 @@
                         @foreach($users as $user)
 
                             <tr>
-                                {{--<td>{{$user->id}}</td>--}}
                                 <td><a href="{{route('admin.users.edit',$user->id)}}">{{$user->name}}</a></td>
                                 <td>{{$user->organismo->nombre}}</td>
                                 <td>{{$user->email}}</td>
