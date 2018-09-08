@@ -15,6 +15,11 @@
             {{csrf_field()}}
 
             <div class="form-group">
+                {!! Form::label('fecha','Fecha:') !!}
+                {!! Form::date('fecha',null,['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('causaNumero','Causa N°:') !!}
                 {!! Form::text('causaNumero',null,['class'=>'form-control']) !!}
             </div>

@@ -71,13 +71,12 @@
                 <tr>
                 {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
                 {{csrf_field()}}
+
                     <th>
                         <div class="form-group">
                             {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
                         </div>
                     </th>
-
-
 
                     <th>
                         <div class="form-group">
@@ -129,15 +128,24 @@
                 @foreach($escritos as $escrito)
 
                     <tr>
-                        {{--<td>{{$escrito->fecha}}</td>--}}
                         <td>{{date('d-m-Y', strtotime($escrito->fecha))}}</td>
-                        {{--date('d-m-Y', strtotime($user->from_date));--}}
                         <td>{{$escrito->causaNumero}}</td>
                         <td>{{$escrito->causaAnio}}</td>
-                        <td><a href="{{route('user.escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>
+                        <td>{{$escrito->caratula}}</a></td>
                         <td>{{$escrito->organismo->nombre}}</td>
                         <td>{{$escrito->observaciones}}</td>
                         <td>{{$escrito->user->name}}</td>
+                        <td><a class="btn btn-primary" href="{{route('user.escritos.edit',$escrito->id)}}">Editar</a></td>
+                        {{--<td><a class="btn btn-danger"  href="{{route('user.escritos.destroy',$escrito->id)}}">Borrar</a></td>--}}
+                        <td>
+                        {!! Form::open(['method'=>'DELETE','action'=> ['User\EscritosController@destroy', $escrito->id]]) !!}
+
+                        <div class="form-group">
+                            {!! Form::submit('Borrar',['class'=>'btn btn-danger']) !!}
+                        </div>
+
+                        {!! Form::close() !!}
+                        </td>
                     </tr>
 
                 @endforeach

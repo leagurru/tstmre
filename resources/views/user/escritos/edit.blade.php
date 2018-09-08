@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-    <h1>Edición de un Organismo</h1>
+    <h1>Edición de un Escrito</h1>
 
     <div class="row">
 
@@ -12,6 +12,11 @@
             {!! Form::model($escrito,['method'=>'PATCH','url'=>['/user/escritos/' . $escrito->id]])  !!}
 
             {{csrf_field()}}
+
+            <div class="form-group">
+                {!! Form::label('fecha','Fecha:') !!}
+                {!! Form::date('fecha',null,['class'=>'form-control']) !!}
+            </div>
 
             <div class="form-group">
                 {!! Form::label('causaNumero','Causa N°:') !!}

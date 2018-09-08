@@ -44,7 +44,9 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::resource('organismos','OrganismosController');
 });
 
+
 Route::prefix('user')->name('user.')->namespace('User')->group(function () {
     Route::resource('escritos','EscritosController');
 });
+
 

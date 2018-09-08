@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Modelos\User\Escrito;
 use App\Http\Requests\User\Escrito\CreateEscritoRequest;
+use App\Http\Requests\User\Escrito\UpdateEscritoRequest;
 use App\Modelos\Admin\Organismo;
 use App\Modelos\Admin\User;
 use Illuminate\Http\Request;
@@ -90,7 +91,7 @@ class EscritosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateEscritoRequest $request, $id)
+    public function update(UpdateEscritoRequest $request, $id)
     {
         $escrito = Escrito::findOrFail($id);
 
@@ -107,10 +108,10 @@ class EscritosController extends Controller
      */
     public function destroy($id)
     {
-        $escrito = Edificio::findOrFail($id);
+        $escrito = Escrito::findOrFail($id);
         $escrito->delete();
         Session::flash('success','El escrito ha sido borrado');
-        return redirect('user.escritos');
+        return redirect('/user/escritos');
     }
 
 
