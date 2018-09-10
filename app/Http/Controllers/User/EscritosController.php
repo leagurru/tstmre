@@ -39,7 +39,8 @@ class EscritosController extends Controller
         $organismos = Organismo::pluck('nombre','id')->all();
         $users      = User::pluck('nombre','id')->all();
 
-        $mesas = Organismo::where('es_mre', 1)->pluck('nombre','id');
+        $mesas = Organismo::where('es_mre', 1)->pluck('nombre','id')->all();
+
 
         return view('user.escritos.index',compact('escritos','organismos','users', 'mesas'));
     }
