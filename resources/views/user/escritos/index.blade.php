@@ -51,13 +51,13 @@
                     </th>
                     <th>
                         <div class="form-group">
-                            {!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}
+                            {!! Form::select('organismo_id', [''=>'Para:'] + $organismos,null,['class'=>'form-control']) !!}
                         </div>
                     </th>
 
                     <th>
                         <div class="form-group">
-                            {!! Form::select('id', [''=>'MRE'] + $mesas,null,['class'=>'form-control']) !!}
+                            {!! Form::select('id', [''=>'En:'] + $organismosEn,null,['class'=>'form-control']) !!}
                         </div>
                     </th>
 
@@ -91,9 +91,10 @@
                         <td>{{$escrito->causaNumero}}</td>
                         <td>{{$escrito->causaAnio}}</td>
                         <td>{{$escrito->caratula}}</a></td>
-                        <td>{{$escrito->organismo->nombre}}</td>
-                        <td>{{$escrito->organismo->nombre}}</td>
-                        {{--<td>{{$escrito->organismo->mre->mre_id}}</td>--}}
+                        <td>{{$escrito->organismo->nombreCorto}}</td>
+
+
+                        <td>{{$escrito->mre->organismo->nombreCorto}}</td>
                         <td>{{$escrito->observaciones}}</td>
                         <td>{{$escrito->user->nombre}}</td>
                         <td><a class="btn btn-primary" href="{{route('user.escritos.edit',$escrito->id)}}">Editar</a></td>

@@ -17,6 +17,11 @@ class Escrito extends Model
         return $this->belongsTo('App\Modelos\Admin\Organismo');
     }
 
+    public function mre(){
+        return $this->belongsTo('App\Modelos\Admin\Mre','mre_id', 'mre_id');
+    }
+
+
     // Query scope
 
     public function scopeFecha($query, $fecha)

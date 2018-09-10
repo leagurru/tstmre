@@ -26,6 +26,7 @@ class EscritosController extends Controller
 
 
 
+
         $escritos = Escrito::caratula($caratula)
             ->fecha($fecha)
             ->organismo_id($organismo_id)
@@ -36,13 +37,14 @@ class EscritosController extends Controller
             ->orderBy('fecha','DESC')
             ->paginate(10);
 
-        $organismos = Organismo::pluck('nombre','id')->all();
-        $users      = User::pluck('nombre','id')->all();
+        $organismos    = Organismo::pluck('nombreCorto','id')->all();
+        $users         = User::pluck('nombre','id')->all();
 
-        $mesas = Organismo::where('es_mre', 1)->pluck('nombre','id')->all();
+        $organismosEn = Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
 
 
-        return view('user.escritos.index',compact('escritos','organismos','users', 'mesas'));
+
+        return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
     }
 
     /**

@@ -11,6 +11,10 @@ class Mre extends Model
     ];
 
     public function organismo(){
-        return $this->belongsTo('App\Modelos\Admin\Organismo','mre_id','id');
+        return $this->hasOne('App\Modelos\Admin\Organismo','id','mre_id');
+    }
+
+    public function escrito(){
+        return $this->hasMany('App\Modelos\User\Escrito');
     }
 }

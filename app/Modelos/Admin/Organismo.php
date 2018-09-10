@@ -26,7 +26,7 @@ class Organismo extends Model
 //    }
 
     public function mre(){
-        return $this->hasMany('App\Modelos\Admin\Mre','id', 'mre_id');
+        return $this->belongsTo('App\Modelos\Admin\Mre','mre_id', 'mre_id');
     }
 
 }
