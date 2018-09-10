@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Modelos\Admin\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'nombre' => $faker->name,
         'organismo_id' => $faker->numberBetween(101,102),
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secreto'),

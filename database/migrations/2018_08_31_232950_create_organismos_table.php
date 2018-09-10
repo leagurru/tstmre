@@ -16,8 +16,11 @@ class CreateOrganismosTable extends Migration
         Schema::create('organismos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('nombreCorto',10)->nullable();
+            $table->boolean('es_mre')->default(false);  // booleano que indica si el organismo es mre
             $table->integer('edificio_id');
-            $table->integer('piso')->nullable($value = true);
+            $table->integer('piso');
+            $table->string('pisoTexto', 20);
             $table->string('observaciones')->nullable($value = true);
             $table->timestamps();
         });

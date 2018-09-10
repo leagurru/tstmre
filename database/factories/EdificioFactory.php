@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Edificio::class, function (Faker $faker) {
+$factory->define(App\Modelos\Admin\Edificio::class, function (Faker $faker) {
     return [
         //
     ];

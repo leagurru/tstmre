@@ -15,7 +15,9 @@ class CreateMresTable extends Migration
     {
         Schema::create('mres', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('mre_id');
             $table->integer('organismo_id');
+            $table->integer('ordenImpresion');
             $table->timestamps();
         });
     }

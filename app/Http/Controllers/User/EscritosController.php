@@ -35,7 +35,7 @@ class EscritosController extends Controller
             ->paginate(10);
 
         $organismos = Organismo::pluck('nombre','id')->all();
-        $users      = User::pluck('name','id')->all();
+        $users      = User::pluck('nombre','id')->all();
 
         return view('user.escritos.index',compact('escritos','organismos','users'));
     }
@@ -80,7 +80,7 @@ class EscritosController extends Controller
     {
         $escrito    =  Escrito::findOrFail($id);
         $organismos = Organismo::pluck('nombre','id')->all();
-        $users   = User::pluck('name','id')->all();
+        $users   = User::pluck('nombre','id')->all();
         return view('user.escritos.edit',compact('escrito','organismos','users'));
     }
 

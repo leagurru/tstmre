@@ -1,4 +1,9 @@
 @extends('layouts.admin')
+
+@section('scripts')
+@endsection
+
+
 @section('content')
 
     <h1>Edición de un Escrito</h1>

@@ -16,13 +16,15 @@ class CreateEscritosTable extends Migration
         Schema::create('escritos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('organismo_id');
+            $table->integer('organismo_id'); //organismo destino del escrito
             $table->date('fecha');
+            $table->integer('mre_id');  // organismo del usuario al crear el escrito
             $table->integer('causaNumero');
             $table->integer('causaAnio');
             $table->string('caratula');
             $table->string('observaciones')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

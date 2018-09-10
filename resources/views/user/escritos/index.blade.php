@@ -2,54 +2,9 @@
 
 @section('content')
             <h1 align="center"><a href="{{route('user.escritos.create')}}">Nuevo Escrito</a></h1>
-        {{--<div class="col-md2">--}}
-                {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
-        {{--</div>--}}
 
-    {{--<div class="container">--}}
     <div class="row">
-        {{--<div class="col-md-12">--}}
-            {{--<div class="page-header">--}}
-                {{--{!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}--}}
-                {{--{{csrf_field()}}--}}
 
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--{!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}--}}
-                {{--</div>--}}
-
-                {{--<div class="form-group">--}}
-                    {{--<button type="submit" class="btn btn-primary" type="button">Buscar</button>--}}
-                {{--</div>--}}
-
-
-                {{--{!! Form::close() !!}--}}
-            {{--</div>--}}
-
-        {{--</div>--}}
 
         <div class="col-md8">
             <table class="table table-hover table-striped">
@@ -134,7 +89,7 @@
                         <td>{{$escrito->caratula}}</a></td>
                         <td>{{$escrito->organismo->nombre}}</td>
                         <td>{{$escrito->observaciones}}</td>
-                        <td>{{$escrito->user->name}}</td>
+                        <td>{{$escrito->user->nombre}}</td>
                         <td><a class="btn btn-primary" href="{{route('user.escritos.edit',$escrito->id)}}">Editar</a></td>
                         {{--<td><a class="btn btn-danger"  href="{{route('user.escritos.destroy',$escrito->id)}}">Borrar</a></td>--}}
                         <td>
@@ -168,51 +123,3 @@
 
 @stop
 
-{{--@extends('layouts.admin')--}}
-
-{{--@section('content')--}}
-
-    {{--<h1>Escritos</h1>--}}
-    {{--<table class="table">--}}
-        {{--<thead>--}}
-        {{--<tr>--}}
-            {{--<th>Causa N°</th>--}}
-            {{--<th>Causa Año</th>--}}
-            {{--<th>Carátula</th>--}}
-            {{--<th>Organismo</th>--}}
-            {{--<th>Observaciones</th>--}}
-            {{--<th>Usuario</th>--}}
-        {{--</tr>--}}
-        {{--</thead>--}}
-        {{--<tbody>--}}
-
-        {{--@if($escritos)--}}
-            {{--@foreach($escritos as $escrito)--}}
-
-                {{--<tr>--}}
-                    {{--<td>{{$escrito->causaNumero}}</td>--}}
-                    {{--<td>{{$escrito->causaAnio}}</td>--}}
-                    {{--<td><a href="{{route('user.escritos.edit',$escrito->id)}}">{{$escrito->caratula}}</a></td>--}}
-                    {{--<td>{{$escrito->organismo->nombre}}</td>--}}
-                    {{--<td>{{$escrito->observaciones}}</td>--}}
-                    {{--<td>{{$escrito->user->name}}</td>--}}
-                {{--</tr>--}}
-
-            {{--@endforeach--}}
-        {{--@endif--}}
-
-        {{--</tbody>--}}
-    {{--</table>--}}
-
-    {{--<div class="row">--}}
-        {{--<div class="col-sm-6 col-sm-offset-5"></div>--}}
-    {{--</div>--}}
-
-
-    {{--<div class="row">--}}
-        {{--<div class="col-sm-6 col-sm-offset-5">--}}
-            {{--{{$escritos->render()}}--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-{{--@stop--}}

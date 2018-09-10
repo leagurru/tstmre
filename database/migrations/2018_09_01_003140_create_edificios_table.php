@@ -15,7 +15,7 @@ class CreateEdificiosTable extends Migration
     {
         Schema::create('edificios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('direccion');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
