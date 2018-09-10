@@ -23,6 +23,7 @@ class EscritosController extends Controller
         $causaAnio     = $request->get('causaAnio');
         $observaciones = $request->get('observaciones');
         $user_id       = $request->get('user_id');
+        $mre_id        = $request->get('mre_id');
 
 
 
@@ -34,6 +35,7 @@ class EscritosController extends Controller
             ->causaAnio($causaAnio)
             ->observaciones($observaciones)
             ->user_id($user_id)
+            ->mre_id($mre_id)
             ->orderBy('fecha','DESC')
             ->paginate(10);
 

@@ -73,5 +73,11 @@ class Escrito extends Model
         }
     }
 
+    public function scopeMre_id($query, $mre_id)
+    {
+        if ($mre_id) {
+            return $query->where('mre_id', '=', "$mre_id");
+        }
+    }
 
 }
