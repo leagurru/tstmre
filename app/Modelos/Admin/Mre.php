@@ -11,6 +11,6 @@ class Mre extends Model
     ];
 
     public function organismo(){
-        return $this->belongsTo('App\Modelos\Admin\Organismo');
+        return $this->belongsTo('App\Modelos\Admin\Organismo','mre_id','id');
     }
 }

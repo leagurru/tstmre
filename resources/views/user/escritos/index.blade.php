@@ -55,7 +55,11 @@
                         </div>
                     </th>
 
-
+                    <th>
+                        <div class="form-group">
+                            {!! Form::select('mre_id', [''=>'MRE'] + $mesas,null,['class'=>'form-control']) !!}
+                        </div>
+                    </th>
 
                     <th>
                         <div class="form-group">

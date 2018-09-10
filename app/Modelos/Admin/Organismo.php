@@ -21,8 +21,13 @@ class Organismo extends Model
     public function user(){
         return $this->hasMany('App\Modelos\Admin\User');
     }
+//    public function mre(){
+//        return $this->hasOne('App\Modelos\Admin\Mre');
+//    }
+
     public function mre(){
-        return $this->hasOne('App\Modelos\Admin\Mre');
+        return $this->hasMany('App\Modelos\Admin\Mre','id', 'mre_id');
     }
+
 }
 

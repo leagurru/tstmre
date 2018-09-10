@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Modelos\Admin\Mre;
 use App\Modelos\User\Escrito;
 use App\Http\Requests\User\Escrito\CreateEscritoRequest;
 use App\Http\Requests\User\Escrito\UpdateEscritoRequest;
@@ -21,7 +22,8 @@ class EscritosController extends Controller
         $causaNumero   = $request->get('causaNumero');
         $causaAnio     = $request->get('causaAnio');
         $observaciones = $request->get('observaciones');
-        $user_id  = $request->get('user_id');
+        $user_id       = $request->get('user_id');
+
 
 
         $escritos = Escrito::caratula($caratula)
@@ -37,7 +39,9 @@ class EscritosController extends Controller
         $organismos = Organismo::pluck('nombre','id')->all();
         $users      = User::pluck('nombre','id')->all();
 
-        return view('user.escritos.index',compact('escritos','organismos','users'));
+        $mesas = Organismo::where('es_mre', 1)->pluck('nombre','id');
+
+        return view('user.escritos.index',compact('escritos','organismos','users', 'mesas'));
     }
 
     /**
