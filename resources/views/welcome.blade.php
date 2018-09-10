@@ -86,6 +86,20 @@
                 </div>
 
             </div>
+
+                <br><br>
+                <div>
+                    <div>
+                        Escritos con DataTables
+                    </div>
+
+                    <div>
+                        <a href="user/escritosDt">Todos los Escritos</a>
+                        <a href="user/escritos/create">Nuevo Escrito</a>
+
+                    </div>
+                </div>
+
         </div>
     </body>
 </html>

@@ -47,6 +47,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
 
 Route::prefix('user')->name('user.')->namespace('User')->group(function () {
     Route::resource('escritos','EscritosController');
+    Route::resource('escritosDt','EscritosDtController');
 });
 
 
