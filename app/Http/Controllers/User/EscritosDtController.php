@@ -23,7 +23,7 @@ class EscritosDtController extends Controller
         $causaAnio     = $request->get('causaAnio');
         $observaciones = $request->get('observaciones');
         $user_id       = $request->get('user_id');
-
+        $mre_id        = $request->get('id');
 
 
         $escritos = Escrito::caratula($caratula)
@@ -33,16 +33,18 @@ class EscritosDtController extends Controller
             ->causaAnio($causaAnio)
             ->observaciones($observaciones)
             ->user_id($user_id)
+            ->mre_id($mre_id)
             ->orderBy('fecha','DESC')
             ->paginate(10);
 
-        $organismos = Organismo::pluck('nombre','id')->all();
-        $users      = User::pluck('nombre','id')->all();
+        $organismos    = Organismo::pluck('nombreCorto','id')->all();
+        $users         = User::pluck('nombre','id')->all();
 
-        $mesas = Organismo::where('es_mre', 1)->pluck('nombre','id')->all();
+        $organismosEn = Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
 
 
-        return view('user.escritosDt.index',compact('escritos','organismos','users', 'mesas'));
+
+        return view('user.escritosDt.index',compact('escritos','organismos','users', 'organismosEn'));
     }
 
     /**

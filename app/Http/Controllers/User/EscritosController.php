@@ -42,7 +42,13 @@ class EscritosController extends Controller
         $organismos    = Organismo::pluck('nombreCorto','id')->all();
         $users         = User::pluck('nombre','id')->all();
 
-        $organismosEn = Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
+        //$organismosEn = Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
+
+        $organismosEn = Mre::with('organismo')->get();
+//        dd($organismosEn);
+
+//            Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
+
 
 
 

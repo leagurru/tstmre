@@ -55,11 +55,18 @@
                         </div>
                     </th>
 
+
                     <th>
                         <div class="form-group">
-                            {!! Form::select('id', [''=>'En:'] + $organismosEn,null,['class'=>'form-control']) !!}
+                            <select class="form-control" name="id">
+                                <option value="" selected="selected">Para:</option>
+                                @foreach($organismosEn as $mre)
+                                    <option value="{{$mre->organismo->id}}">{{$mre->organismo->nombreCorto}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </th>
+
 
                     <th>
                         <div class="form-group">

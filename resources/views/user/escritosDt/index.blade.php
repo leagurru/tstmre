@@ -1,88 +1,33 @@
 @extends('layouts.admin')
 
+@section('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+{{--https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css--}}
+{{--https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css--}}
+@endsection
+
+
 @section('content')
-            <h1 align="center"><a href="{{route('user.escritos.create')}}">Nuevo Escrito</a></h1>
 
-    <div class="row">
-
-
-        <div class="col-md8">
-            <table class="table table-hover table-striped">
-                <thead>
-
-                {{--<tr>--}}
-                    {{--<th>Fecha</th>--}}
-                    {{--<th>Causa N°</th>--}}
-                    {{--<th>Causa Año</th>--}}
-                    {{--<th>Carátula</th>--}}
-                    {{--<th>Organismo</th>--}}
-                    {{--<th>Observaciones</th>--}}
-                    {{--<th>Usuario</th>--}}
-                    {{--<th>--}}
-                        {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
-                    {{--</th>--}}
-                {{--</tr>--}}
-
+    <div class="container">
+        <table id="escritos" class="table table-striped table-bordered" style="width:100%">
+            <thead>
                 <tr>
-                {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
-                {{csrf_field()}}
-
-                    <th>
-                        <div class="form-group">
-                            {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
-                        </div>
-                    </th>
-
-                    <th>
-                        <div class="form-group">
-                            {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
-                        </div>
-                    </th>
-
-                    <th>
-                        <div class="form-group">
-                            {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            {!! Form::select('organismo_id', [''=>'Organismo'] + $organismos,null,['class'=>'form-control']) !!}
-                        </div>
-                    </th>
-
-                    <th>
-                        <div class="form-group">
-                            {!! Form::select('id', [''=>'MRE'] + $mesas,null,['class'=>'form-control']) !!}
-                        </div>
-                    </th>
-
-                    <th>
-                        <div class="form-group">
-                            {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" type="button">Buscar</button>
-                        </div>
-                    </th>
-
-                {!! Form::close() !!}
-            </tr>
+                    <th>Fecha</th>
+                    <th>Causa N°</th>
+                    <th>Causa Año</th>
+                    <th>Carátula</th>
+                    <th>Para</th>
+                    <th>En</th>
+                    <th>Observaciones</th>
+                    <th>Usuario</th>
+                </tr>
             </thead>
 
-            <tbody>
 
+            <tbody>
                 @if($escritos)
                 @foreach($escritos as $escrito)
 
@@ -91,41 +36,53 @@
                         <td>{{$escrito->causaNumero}}</td>
                         <td>{{$escrito->causaAnio}}</td>
                         <td>{{$escrito->caratula}}</a></td>
-                        <td>{{$escrito->organismo->nombre}}</td>
-                        <td>{{$escrito->organismo->nombre}}</td>
-                        {{--<td>{{$escrito->organismo->mre->mre_id}}</td>--}}
+                        <td>{{$escrito->organismo->nombreCorto}}</td>
+                        <td>{{$escrito->mre->organismo->nombreCorto}}</td>
                         <td>{{$escrito->observaciones}}</td>
                         <td>{{$escrito->user->nombre}}</td>
-                        <td><a class="btn btn-primary" href="{{route('user.escritos.edit',$escrito->id)}}">Editar</a></td>
-                        {{--<td><a class="btn btn-danger"  href="{{route('user.escritos.destroy',$escrito->id)}}">Borrar</a></td>--}}
-                        <td>
-                        {!! Form::open(['method'=>'DELETE','action'=> ['User\EscritosController@destroy', $escrito->id]]) !!}
+                        {{--<td><a class="btn btn-primary" href="{{route('user.escritos.edit',$escrito->id)}}">Editar</a></td>--}}
+                        {{--<td>--}}
+                            {{--{!! Form::open(['method'=>'DELETE','action'=> ['User\EscritosController@destroy', $escrito->id]]) !!}--}}
 
-                        <div class="form-group">
-                            {!! Form::submit('Borrar',['class'=>'btn btn-danger']) !!}
-                        </div>
+                            {{--<div class="form-group">--}}
+                                {{--{!! Form::submit('Borrar',['class'=>'btn btn-danger']) !!}--}}
+                            {{--</div>--}}
 
-                        {!! Form::close() !!}
-                        </td>
+                            {{--{!! Form::close() !!}--}}
+                        {{--</td>--}}
                     </tr>
 
                 @endforeach
                 @endif
 
-
-
-
             </tbody>
         </table>
     </div>
 
-</div>
+{{--<div class="row">--}}
+    {{--<div class="col-sm-6 col-sm-offset-5">--}}
+        {{--{{$escritos->appends(Request::only(['fecha','organismo_id','caratula','causaNumero','causaAnio','observaciones','user_id']))->render()}}--}}
+    {{--</div>--}}
+{{--</div>--}}
+@endsection
 
-<div class="row">
-    <div class="col-sm-6 col-sm-offset-5">
-        {{$escritos->appends(Request::only(['fecha','organismo_id','caratula','causaNumero','causaAnio','observaciones','user_id']))->render()}}
-    </div>
-</div>
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-@stop
+    <script>
+        $(document).ready(function() {
+            $('#escritos').DataTable();
+        } );
+    </script>
+
+    {{--https://code.jquery.com/jquery-3.3.1.js--}}
+    {{--https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js--}}
+    {{--https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js--}}
+@endsection
+
+
+
+
 
