@@ -23,7 +23,7 @@ class EscritosController extends Controller
         $causaAnio     = $request->get('causaAnio');
         $observaciones = $request->get('observaciones');
         $user_id       = $request->get('user_id');
-        $mre_id        = $request->get('mre_id');
+        $mre_id        = $request->get('id');
 
 
 

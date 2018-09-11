@@ -527,7 +527,7 @@ class OrganismosSeeder extends Seeder
         ]);
         Organismo::create([
             'nombre'      => 'Mesa Receptora de Escritos - Perón 990',
-            'nombreCorto' => 'MRE-PER',
+            'nombreCorto' => 'MRE-Per',
             'es_mre'      => true,
             'edificio_id' => 3,
             'piso'        => 0,

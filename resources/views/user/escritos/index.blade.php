@@ -92,8 +92,6 @@
                         <td>{{$escrito->causaAnio}}</td>
                         <td>{{$escrito->caratula}}</a></td>
                         <td>{{$escrito->organismo->nombreCorto}}</td>
-
-
                         <td>{{$escrito->mre->organismo->nombreCorto}}</td>
                         <td>{{$escrito->observaciones}}</td>
                         <td>{{$escrito->user->nombre}}</td>
@@ -124,7 +122,7 @@
 
 <div class="row">
     <div class="col-sm-6 col-sm-offset-5">
-        {{$escritos->appends(Request::only(['fecha','organismo_id','caratula','causaNumero','causaAnio','observaciones','user_id']))->render()}}
+        {{$escritos->appends(Request::only(['fecha','organismo_id','caratula','causaNumero','causaAnio','observaciones','user_id','id']))->render()}}
     </div>
 </div>
 
