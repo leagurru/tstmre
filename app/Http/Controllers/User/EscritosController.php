@@ -18,10 +18,12 @@ class EscritosController extends Controller
     {
 
 
-//        dd($request);
+//        if (isset($request->input('submit'))){
+//            return 'Is set';
+//        }
+//        return 'Is not set';
 
-//        dd($request->input('action'));
-
+//       dd($request->input('accion'));
 
         $fecha         = $request->get('fecha');
         $organismo_id  = $request->get('organismo_id');
@@ -48,11 +50,33 @@ class EscritosController extends Controller
         $users         = User::pluck('nombre','id')->all();
         $organismosEn  = Mre::with('organismo')->get();
 
-        if($request->input('accion') == 'buscar'){
+
+        if(is_null($request->input('accion'))){
             return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
-        }else {
-            return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+        }else{
+            switch ($request->input('accion')) {
+                case 'buscar':
+                    return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+                    break;
+
+                case 'informe':
+                    return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+                    break;
+
+                case 'default':
+                    return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+                    break;
+            }
         }
+
+
+
+
+//        if($request->input('accion') == 'buscar'){
+//            return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+//        }else {
+//            return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+//        }
     }
 
     /**
