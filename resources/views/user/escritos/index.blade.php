@@ -25,7 +25,8 @@
 
                 <tr>
                 {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
-                {{csrf_field()}}
+                    {{csrf_field()}}
+
 
                     <th>
                         <div class="form-group">
@@ -59,7 +60,7 @@
                     <th>
                         <div class="form-group">
                             <select class="form-control" name="id">
-                                <option value="" selected="selected">Para:</option>
+                                <option value="" selected="selected">En:</option>
                                 @foreach($organismosEn as $mre)
                                     <option value="{{$mre->organismo->id}}">{{$mre->organismo->nombreCorto}}</option>
                                 @endforeach
@@ -80,11 +81,29 @@
                     </th>
                     <th>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" type="button">Buscar</button>
+                            <button type="submit" class="btn btn-primary" value="buscar" name="accion">Buscar</button>
+                            {{--<button type="submit" class="btn btn-primary" type="button">Buscar</button>--}}
+                        </div>
+                    </th>
+
+                    <th>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" value="informe" name="accion">Informe</button>
                         </div>
                     </th>
 
                 {!! Form::close() !!}
+
+
+                    {{--// parametros obtenidos en otro form--}}
+                {{--{!! Form::open(['route'=>'user.escritos.informe','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}--}}
+                    {{--<th>--}}
+                        {{--<div class="form-group">--}}
+                            {{--<button type="submit" class="btn btn-primary" type="button">Imprimir PDF</button>--}}
+                        {{--</div>--}}
+                    {{--</th>--}}
+
+                {{--{!! Form::close() !!}--}}
             </tr>
             </thead>
 

@@ -16,6 +16,13 @@ class EscritosController extends Controller
 {
     public function index(Request $request)
     {
+
+
+//        dd($request);
+
+//        dd($request->input('action'));
+
+
         $fecha         = $request->get('fecha');
         $organismo_id  = $request->get('organismo_id');
         $caratula      = $request->get('caratula');
@@ -24,8 +31,6 @@ class EscritosController extends Controller
         $observaciones = $request->get('observaciones');
         $user_id       = $request->get('user_id');
         $mre_id        = $request->get('id');
-
-
 
 
         $escritos = Escrito::caratula($caratula)
@@ -41,18 +46,13 @@ class EscritosController extends Controller
 
         $organismos    = Organismo::pluck('nombreCorto','id')->all();
         $users         = User::pluck('nombre','id')->all();
+        $organismosEn  = Mre::with('organismo')->get();
 
-        //$organismosEn = Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
-
-        $organismosEn = Mre::with('organismo')->get();
-//        dd($organismosEn);
-
-//            Organismo::where('es_mre', 1)->pluck('nombreCorto','id')->all();
-
-
-
-
-        return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+        if($request->input('accion') == 'buscar'){
+            return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+        }else {
+            return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+        }
     }
 
     /**
@@ -129,5 +129,16 @@ class EscritosController extends Controller
         return redirect('/user/escritos');
     }
 
+    public function informe(Request $request){
+
+
+        dd("en metodo pdf");
+
+//        $products = Product::all();
+//
+//        $pdf = PDF::loadView('pdf.products', compact('products'));
+//
+//        return $pdf->download('listado.pdf');
+    }
 
 }
