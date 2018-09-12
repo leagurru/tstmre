@@ -10,19 +10,18 @@
             <table class="table table-hover table-striped">
                 <thead>
 
-                <tr>
-                    <th>Fecha</th>
-                    <th>Causa N°</th>
-                    <th>Causa Año</th>
-                    <th>Carátula</th>
-                    <th>Para</th>
-                    <th>En</th>
-                    <th>Observaciones</th>
-                    <th>Usuario</th>
-                </tr>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Causa N°</th>
+                        <th>Causa Año</th>
+                        <th>Carátula</th>
+                        <th>Para</th>
+                        <th>En</th>
+                        <th>Observaciones</th>
+                        <th>Usuario</th>
+                    </tr>
 
-
-            </thead>
+                </thead>
 
             <tbody>
 
@@ -33,7 +32,7 @@
                         <td>{{date('d-m-Y', strtotime($escrito->fecha))}}</td>
                         <td>{{$escrito->causaNumero}}</td>
                         <td>{{$escrito->causaAnio}}</td>
-                        <td>{{$escrito->caratula}}</a></td>
+                        <td>{{$escrito->caratula}}</td>
                         <td>{{$escrito->organismo->nombreCorto}}</td>
                         <td>{{$escrito->mre->organismo->nombreCorto}}</td>
                         <td>{{$escrito->observaciones}}</td>

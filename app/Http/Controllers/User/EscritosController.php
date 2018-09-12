@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use Datatables;
 use App\Http\Controllers\Controller;
 use App\Modelos\Admin\Mre;
 use App\Modelos\User\Escrito;
@@ -14,7 +15,22 @@ use Illuminate\Support\Facades\Session;
 
 class EscritosController extends Controller
 {
-    public function index(Request $request)
+    public function index()
+    {
+
+        $escritos      = Escrito::orderBy('fecha','DESC')->paginate(10);
+        $organismos    = Organismo::pluck('nombreCorto','id')->all();
+        $users         = User::pluck('nombre','id')->all();
+        $organismosEn  = Mre::with('organismo')->get();
+
+
+        dd($escritos->first()->fecha);
+
+        return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+    }
+
+
+    public function informe(Request $request)
     {
 
         $fecha         = $request->get('fecha');
@@ -61,15 +77,65 @@ class EscritosController extends Controller
             }
         }
 
-
-
-
-//        if($request->input('accion') == 'buscar'){
-//            return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
-//        }else {
-//            return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
-//        }
     }
+
+
+//    public function index(Request $request)
+//    {
+//
+//        $fecha         = $request->get('fecha');
+//        $organismo_id  = $request->get('organismo_id');
+//        $caratula      = $request->get('caratula');
+//        $causaNumero   = $request->get('causaNumero');
+//        $causaAnio     = $request->get('causaAnio');
+//        $observaciones = $request->get('observaciones');
+//        $user_id       = $request->get('user_id');
+//        $mre_id        = $request->get('id');
+//
+//
+//        $escritos = Escrito::caratula($caratula)
+//            ->fecha($fecha)
+//            ->organismo_id($organismo_id)
+//            ->causaNumero($causaNumero)
+//            ->causaAnio($causaAnio)
+//            ->observaciones($observaciones)
+//            ->user_id($user_id)
+//            ->mre_id($mre_id)
+//            ->orderBy('fecha','DESC')
+//            ->paginate(10);
+//
+//        $organismos    = Organismo::pluck('nombreCorto','id')->all();
+//        $users         = User::pluck('nombre','id')->all();
+//        $organismosEn  = Mre::with('organismo')->get();
+//
+//
+//        if(is_null($request->input('accion'))){
+//            return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+//        }else{
+//            switch ($request->input('accion')) {
+//                case 'buscar':
+//                    return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+//                    break;
+//
+//                case 'informe':
+//                    return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+//                    break;
+//
+//                case 'default':
+//                    return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+//                    break;
+//            }
+//        }
+//
+//
+//
+//
+////        if($request->input('accion') == 'buscar'){
+////            return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+////        }else {
+////            return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+////        }
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -98,7 +164,9 @@ class EscritosController extends Controller
      */
     public function show($id)
     {
-        //
+        $escrito = Escrito::findOrfail($id);
+
+        return view('user.escritos.show',compact('escrito'));
     }
 
     /**
@@ -145,16 +213,5 @@ class EscritosController extends Controller
         return redirect('/user/escritos');
     }
 
-    public function informe(Request $request){
-
-
-        return  "pepe";
-
-//        $products = Product::all();
-//
-//        $pdf = PDF::loadView('pdf.products', compact('products'));
-//
-//        return $pdf->download('listado.pdf');
-    }
 
 }
