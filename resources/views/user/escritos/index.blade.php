@@ -55,7 +55,7 @@
                         </th>
                         <th>
                             <div class="form-group">
-                                {!! Form::select('organismo_id', [''=>'Para:'] + $organismos,null,['class'=>'form-control']) !!}
+                                {!! Form::select('organismo_id', [''=>'Para:'] + $organismosPara,null,['class'=>'form-control']) !!}
                             </div>
                         </th>
 
@@ -66,6 +66,7 @@
                                     <option value="" selected="selected">En:</option>
                                     @foreach($organismosEn as $mre)
                                         <option value="{{$mre->organismo->id}}">{{$mre->organismo->nombreCorto}}</option>
+{{--                                        <option value="{{$mre->id}}">{{$mre->nombreCorto}}</option>--}}
                                     @endforeach
                                 </select>
                             </div>

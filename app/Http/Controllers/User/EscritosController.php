@@ -18,15 +18,14 @@ class EscritosController extends Controller
     public function index()
     {
 
-        $escritos      = Escrito::orderBy('fecha','DESC')->paginate(10);
-        $organismos    = Organismo::pluck('nombreCorto','id')->all();
-        $users         = User::pluck('nombre','id')->all();
-        $organismosEn  = Mre::with('organismo')->get();
+        $escritos       = Escrito::orderBy('fecha','DESC')->paginate(10);
+        $organismosPara = Organismo::pluck('nombreCorto','id')->all();
+        $users          = User::pluck('nombre','id')->all();
+        $organismosEn   = Mre::with('organismo')->get();
+//        $organismosEn  = Organismo::where('es_mre',1)->pluck('nombreCorto','id');
 
 
-        dd($escritos->first()->fecha);
-
-        return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+        return view('user.escritos.index',compact('escritos','organismosPara','users', 'organismosEn'));
     }
 
 
@@ -54,21 +53,21 @@ class EscritosController extends Controller
             ->orderBy('fecha','DESC')
             ->paginate(10);
 
-        $organismos    = Organismo::pluck('nombreCorto','id')->all();
-        $users         = User::pluck('nombre','id')->all();
-        $organismosEn  = Mre::with('organismo')->get();
+        $organismosPara = Organismo::pluck('nombreCorto','id')->all();
+        $users          = User::pluck('nombre','id')->all();
+        $organismosEn   = Mre::with('organismo')->get();
 
 
         if(is_null($request->input('accion'))){
-            return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+            return view('user.escritos.index',compact('escritos','organismosPara','users', 'organismosEn'));
         }else{
             switch ($request->input('accion')) {
                 case 'buscar':
-                    return view('user.escritos.index',compact('escritos','organismos','users', 'organismosEn'));
+                    return view('user.escritos.index',compact('escritos','organismosPara','users', 'organismosEn'));
                     break;
 
                 case 'informe':
-                    return view('user.escritos.informe',compact('escritos','organismos','users', 'organismosEn'));
+                    return view('user.escritos.informe',compact('escritos','organismosPara','users', 'organismosEn'));
                     break;
 
                 case 'default':
