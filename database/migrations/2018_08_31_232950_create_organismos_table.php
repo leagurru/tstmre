@@ -17,6 +17,7 @@ class CreateOrganismosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('nombreCorto',8)->nullable();
+            $table->string('email')->default('???');
             $table->boolean('es_mre')->default(false);  // booleano que indica si el organismo es mre
             $table->integer('edificio_id');
             $table->integer('piso');

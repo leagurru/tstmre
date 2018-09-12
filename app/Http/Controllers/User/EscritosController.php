@@ -17,14 +17,6 @@ class EscritosController extends Controller
     public function index(Request $request)
     {
 
-
-//        if (isset($request->input('submit'))){
-//            return 'Is set';
-//        }
-//        return 'Is not set';
-
-//       dd($request->input('accion'));
-
         $fecha         = $request->get('fecha');
         $organismo_id  = $request->get('organismo_id');
         $caratula      = $request->get('caratula');
@@ -156,7 +148,7 @@ class EscritosController extends Controller
     public function informe(Request $request){
 
 
-        dd("en metodo pdf");
+        return  "pepe";
 
 //        $products = Product::all();
 //

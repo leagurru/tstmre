@@ -24,75 +24,79 @@
                 {{--</tr>--}}
 
                 <tr>
-                {!! Form::open(['route'=>'user.escritos.index','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}
-                    {{csrf_field()}}
+{{--                {!! Form::open(['route'=>'user.escritos.informe','method'=>'GET','class'=>'form-inline pull-right', 'role'=>'search'])  !!}--}}
+                    <form action="/user/escritos/informe" method="GET" class="form-inline pull-right">
+
+                        {{csrf_field()}}
 
 
-                    <th>
-                        <div class="form-group">
-                            {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}
-                        </div>
-                    </th>
+                        <th>
+                            <div class="form-group">
+                                <input type="date" name="fecha" placeholder="Fecha" class="form-control">
+{{--                                {!! Form::date('fecha',null, ['class'=>'form-control', 'placeholder' => 'Fecha']) !!}--}}
+                            </div>
+                        </th>
 
-                    <th>
-                        <div class="form-group">
-                            {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
-                        </div>
-                    </th>
+                        <th>
+                            <div class="form-group">
+                                {!! Form::number('causaNumero',null, ['class'=>'form-control', 'placeholder' => 'Causa N°']) !!}
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group">
+                                {!! Form::number('causaAnio',null, ['class'=>'form-control', 'placeholder' => 'Año']) !!}
+                            </div>
+                        </th>
 
-                    <th>
-                        <div class="form-group">
-                            {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            {!! Form::select('organismo_id', [''=>'Para:'] + $organismos,null,['class'=>'form-control']) !!}
-                        </div>
-                    </th>
-
-
-                    <th>
-                        <div class="form-group">
-                            <select class="form-control" name="id">
-                                <option value="" selected="selected">En:</option>
-                                @foreach($organismosEn as $mre)
-                                    <option value="{{$mre->organismo->id}}">{{$mre->organismo->nombreCorto}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </th>
+                        <th>
+                            <div class="form-group">
+                                {!! Form::text('caratula',null, ['class'=>'form-control', 'placeholder' => 'Carátula']) !!}
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group">
+                                {!! Form::select('organismo_id', [''=>'Para:'] + $organismos,null,['class'=>'form-control']) !!}
+                            </div>
+                        </th>
 
 
-                    <th>
-                        <div class="form-group">
-                            {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
-                        </div>
-                    </th>
-                    <th>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" value="buscar" name="accion">Buscar</button>
-                            {{--<button type="submit" class="btn btn-primary" type="button">Buscar</button>--}}
-                        </div>
-                    </th>
+                        <th>
+                            <div class="form-group">
+                                <select class="form-control" name="id">
+                                    <option value="" selected="selected">En:</option>
+                                    @foreach($organismosEn as $mre)
+                                        <option value="{{$mre->organismo->id}}">{{$mre->organismo->nombreCorto}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </th>
 
-                    <th>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" value="informe" name="accion">Informe</button>
-                        </div>
-                    </th>
 
-                {!! Form::close() !!}
+                        <th>
+                            <div class="form-group">
+                                {!! Form::text('observaciones',null, ['class'=>'form-control', 'placeholder' => 'Observaciones']) !!}
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group">
+                                {!! Form::select('user_id', [''=>'Usuario'] + $users,null,['class'=>'form-control']) !!}
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" value="buscar" name="accion">Buscar</button>
+                                {{--<button type="submit" class="btn btn-primary" type="button">Buscar</button>--}}
+                            </div>
+                        </th>
+
+                        <th>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" value="informe" name="accion">Informe</button>
+                            </div>
+                        </th>
+
+                    </form>
+                {{--{!! Form::close() !!}--}}
 
 
                     {{--// parametros obtenidos en otro form--}}
