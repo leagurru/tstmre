@@ -15,7 +15,8 @@ $factory->define(App\Modelos\User\Escrito::class, function (Faker $faker) {
         'mre_id'      => $faker->randomElement([29,53]),
         'CausaNumero' => $faker->numberBetween(1,19999),
         'CausaAnio' => $faker->numberBetween(2016,2018),
-        'caratula' => str_random(10),
+        //'caratula' => str_random(10),
+        'caratula'   => $faker->lastName . ', '. $faker->firstName . ' c/ ' . $faker->company,
         'observaciones' => str_random(10),
 
     ];
