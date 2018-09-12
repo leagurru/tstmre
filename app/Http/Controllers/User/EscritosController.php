@@ -19,7 +19,11 @@ class EscritosController extends Controller
     {
 
         $escritos       = Escrito::orderBy('fecha','DESC')->paginate(10);
-        $organismosPara = Organismo::pluck('nombreCorto','id')->all();
+        $organismosPara = Organismo::pluck('nombreCorto','id')->all(); //ok parcialmente
+
+        $organismosPara = Organismo::orderBy('nombreCorto','asc')->where('escritos',1)->pluck('nombreCorto','id')->all(); //ok parcialmente
+
+
         $users          = User::pluck('nombre','id')->all();
         $organismosEn   = Mre::with('organismo')->get();
 //        $organismosEn  = Organismo::where('es_mre',1)->pluck('nombreCorto','id');

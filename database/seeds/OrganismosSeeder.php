@@ -271,6 +271,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'MRE-Diag',
             'email'       => 'cntrabajo.mesadeentradas@pjn.gov.ar',
             'es_mre'      => true,
+            'escritos'    => false,
             'edificio_id' => 1,
             'piso'        => 0,
             'pisoTexto'   => 'PB'
@@ -496,6 +497,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'MRE-Lav',
             'email'       => 'cntrabajo.mesadeentradas@pjn.gov.ar',
             'es_mre'      => true,
+            'escritos'    => false,
             'edificio_id' => 2,
             'piso'        => 0,
             'pisoTexto'   => 'PB'
@@ -668,6 +670,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'MRE-Per',
             'email'       => 'cntrabajo.mesadeentradas@pjn.gov.ar',
             'es_mre'      => true,
+            'escritos'    => false,
             'edificio_id' => 3,
             'piso'        => 0,
             'pisoTexto'   => 'PB'
@@ -736,6 +739,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'MRE-Par',
             'email'       => 'cntrabajo.mesadeentradas@pjn.gov.ar',
             'es_mre'      => true,
+            'escritos'    => false,
             'edificio_id' => 4,
             'piso'        => 0,
             'pisoTexto'   => 'PB'
@@ -811,6 +815,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-01',
             'email'       => 'cntrabajo.sala1@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 6,
             'pisoTexto'   => '6°'
@@ -821,6 +826,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-02',
             'email'       => 'cntrabajo.sala2@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 7,
             'pisoTexto'   => '7°'
@@ -831,6 +837,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-03',
             'email'       => 'cntrabajo.sala3@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 3,
             'pisoTexto'   => '3°'
@@ -841,6 +848,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-04',
             'email'       => 'cntrabajo.sala4@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 5,
             'pisoTexto'   => '5°'
@@ -851,6 +859,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-05',
             'email'       => 'cntrabajo.sala5@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 1,
             'pisoTexto'   => '1°'
@@ -861,6 +870,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-06',
             'email'       => 'cntrabajo.sala6@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 2,
             'pisoTexto'   => '2°'
@@ -871,6 +881,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-07',
             'email'       => 'cntrabajo.sala7@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 5,
             'pisoTexto'   => '5°'
@@ -881,6 +892,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-08',
             'email'       => 'cntrabajo.sala8@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 3,
             'pisoTexto'   => '3°'
@@ -891,6 +903,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'SG',
             'email'       => 'cntrabajo.secgeneral@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 1,
             'pisoTexto'   => '1°'
@@ -900,6 +913,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'PRO-SG',
             'email'       => 'cntrabajo.prosecretaria@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 4,
             'pisoTexto'   => '4°'
@@ -909,6 +923,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'JURIS',
             'email'       => 'cntrabajo.ofijurisprudencia@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 4,
             'pisoTexto'   => '4°'
@@ -919,6 +934,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'BIBLIO',
             'email'       => 'cntrabajo.biblioteca@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 4,
             'pisoTexto'   => '4°'
@@ -928,6 +944,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'ESTAD',
             'email'       => 'cntrabajo.estadisticas@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 4,
             'pisoTexto'   => '4°'
@@ -937,6 +954,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'INAP',
             'email'       => 'cntrabajo.prosecretaria@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 4,
             'pisoTexto'   => '4°'
@@ -946,6 +964,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'O-PERS',
             'email'       => 'cntrabajo.personal@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 1,
             'pisoTexto'   => '1°'
@@ -955,6 +974,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'O-ACU',
             'email'       => 'cntrabajo.acuerdos@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 1,
             'pisoTexto'   => '1°'
@@ -964,6 +984,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'O-PERI',
             'email'       => 'cntrabajo.peritos@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 0,
             'pisoTexto'   => 'PB'
@@ -974,6 +995,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'HABIL',
             'email'       => 'cntrabajo.habilitacion@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 1,
             'pisoTexto'   => '2° Cuerpo-Piso 1°'
@@ -983,6 +1005,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'MGE',
             'email'       => 'cntrabajo.mesadeentradas@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 0,
             'pisoTexto'   => 'PB'
@@ -992,6 +1015,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'O-INFOR',
             'email'       => 'cntrabajo.informatica@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 2,
             'pisoTexto'   => '2° Cuerpo-Piso 2°'
@@ -1001,6 +1025,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'INTEN',
             'email'       => 'cntrabajo.intendencia@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 6,
             'piso'        => 2,
             'pisoTexto'   => '2° Cuerpo-Piso 2°'
@@ -1015,6 +1040,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-09',
             'email'       => 'cntrabajo.sala9@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 7,
             'piso'        => 1,
             'pisoTexto'   => '1°'
@@ -1025,6 +1051,7 @@ class OrganismosSeeder extends Seeder
             'nombreCorto' => 'S-10',
             'email'       => 'cntrabajo.sala10@pjn.gov.ar',
             'es_mre'      => false,
+            'escritos'    => false,
             'edificio_id' => 7,
             'piso'        => 1,
             'pisoTexto'   => '1°'
