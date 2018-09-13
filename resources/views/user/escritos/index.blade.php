@@ -10,18 +10,19 @@
             <table class="table table-hover table-striped">
                 <thead>
 
-                {{--<tr>--}}
-                    {{--<th>Fecha</th>--}}
-                    {{--<th>Causa N°</th>--}}
-                    {{--<th>Causa Año</th>--}}
-                    {{--<th>Carátula</th>--}}
-                    {{--<th>Organismo</th>--}}
-                    {{--<th>Observaciones</th>--}}
-                    {{--<th>Usuario</th>--}}
+                <tr>
+                    <th>Fecha</th>
+                    <th>Causa N°</th>
+                    <th>Año</th>
+                    <th>Carátula</th>
+                    <th>Destinado</th>
+                    <th>Entregado</th>
+                    <th>Observaciones</th>
+                    <th>Recibió</th>
                     {{--<th>--}}
                         {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
                     {{--</th>--}}
-                {{--</tr>--}}
+                </tr>
 
                 <tr>
 
@@ -62,15 +63,21 @@
 
                         <th>
                             <div class="form-group">
-                                <select class="form-control" name="id">
-                                    <option value="" selected="selected">En:</option>
-                                    @foreach($organismosEn as $mre)
-                                        <option value="{{$mre->organismo->id}}">{{$mre->organismo->nombreCorto}}</option>
-{{--                                        <option value="{{$mre->id}}">{{$mre->nombreCorto}}</option>--}}
-                                    @endforeach
-                                </select>
+                                {!! Form::select('id', [''=>'En:'] + $organismosEn,null,['class'=>'form-control']) !!}
                             </div>
                         </th>
+
+                        {{--<th>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<select class="form-control" name="id">--}}
+                                    {{--<option value="" selected="selected">En:</option>--}}
+                                    {{--@foreach($organismosEn as $organismo)--}}
+                                        {{--<option value="{{$organismo->id}}">{{$organismo->nombreCorto}}</option>--}}
+{{--                                        <option value="{{$mre->id}}">{{$mre->nombreCorto}}</option>--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</th>--}}
 
 
                         <th>

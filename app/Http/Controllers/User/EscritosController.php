@@ -19,15 +19,20 @@ class EscritosController extends Controller
     {
 
         $escritos       = Escrito::orderBy('fecha','DESC')->paginate(10);
-        $organismosPara = Organismo::pluck('nombreCorto','id')->all(); //ok parcialmente
+//        $organismosPara = Organismo::pluck('nombreCorto','id')->all(); //ok parcialmente
 
-        $organismosPara = Organismo::orderBy('nombreCorto','asc')->where('escritos',1)->pluck('nombreCorto','id')->all(); //ok parcialmente
+        $organismosPara = Organismo::orderBy('nombreCorto','asc')
+            ->where('escritos',1)
+            ->pluck('nombreCorto','id')
+            ->all(); //ok
 
 
         $users          = User::pluck('nombre','id')->all();
-        $organismosEn   = Mre::with('organismo')->get();
-//        $organismosEn  = Organismo::where('es_mre',1)->pluck('nombreCorto','id');
 
+//        $organismosEn   = Mre::with('organismo')->get(); //ok parcialmente
+
+        $organismosEn  = Organismo::where('es_mre',1)->pluck('nombreCorto','id')->all();
+//dd($organismosEn);
 
         return view('user.escritos.index',compact('escritos','organismosPara','users', 'organismosEn'));
     }
@@ -57,9 +62,15 @@ class EscritosController extends Controller
             ->orderBy('fecha','DESC')
             ->paginate(10);
 
-        $organismosPara = Organismo::pluck('nombreCorto','id')->all();
+//        $organismosPara = Organismo::pluck('nombreCorto','id')->all();
+        $organismosPara = Organismo::orderBy('nombreCorto','asc')
+            ->where('escritos',1)
+            ->pluck('nombreCorto','id')
+            ->all(); //ok
+
         $users          = User::pluck('nombre','id')->all();
-        $organismosEn   = Mre::with('organismo')->get();
+        //$organismosEn   = Mre::with('organismo')->get();
+        $organismosEn  = Organismo::where('es_mre',1)->pluck('nombreCorto','id')->all();
 
 
         if(is_null($request->input('accion'))){
@@ -148,7 +159,7 @@ class EscritosController extends Controller
     public function create()
     {
         $organismos = Organismo::pluck('nombre','id')->all();
-        $users = User::pluck('name','id')->all();
+        $users = User::pluck('nombre','id')->all();
         return view('user.escritos.create', compact('organismos','users'));
     }
 
