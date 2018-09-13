@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Organismo extends Model
 {
 
+    protected $casts = [
+        'escritos' => 'boolean',
+        'es_mre'   => 'boolean',
+    ];
+
     protected $fillable = [
         'nombre', 'edificio_id', 'piso', 'observaciones',
     ];
@@ -27,6 +32,12 @@ class Organismo extends Model
 
     public function mre(){
         return $this->belongsTo('App\Modelos\Admin\Mre','mre_id', 'mre_id');
+    }
+
+
+    public function scopeMesasReceptoras($query)
+    {
+        return $query->where('es_mre', true );
     }
 
 }

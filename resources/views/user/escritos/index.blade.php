@@ -19,6 +19,9 @@
                     <th>Entregado</th>
                     <th>Observaciones</th>
                     <th>Recibió</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                     {{--<th>--}}
                         {{--<a class="btn btn-primary" href="{{route('user.escritos.create')}}" role="button">Nuevo Escrito</a>--}}
                     {{--</th>--}}
@@ -100,9 +103,11 @@
 
                         <th>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" value="informe" name="accion">Informe</button>
+                                <button type="submit" class="btn btn-success" value="informe" name="accion">Listado en PDF</button>
                             </div>
                         </th>
+
+                        <th></th>
 
                     </form>
 

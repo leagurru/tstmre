@@ -52,3 +52,6 @@ Route::prefix('user')->name('user.')->namespace('User')->group(function () {
 
 //    Route::resource('escritosDt','EscritosDtController');
 });
+
+
+//Route::get('generopdf','User\EscritosController@generopdf');

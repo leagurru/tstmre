@@ -1,16 +1,7 @@
 @extends('layouts.admin')
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
 @section('content')
+            {{--<h1 align="center"><a href="{{route('user.escritos.create')}}">Nuevo Escrito</a></h1>--}}
 
     <div class="row">
 
@@ -56,6 +47,12 @@
         </table>
     </div>
 
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-5">
+        {{$escritos->appends(Request::only(['fecha','organismo_id','caratula','causaNumero','causaAnio','observaciones','user_id','id']))->render()}}
+    </div>
 </div>
 
 @stop
